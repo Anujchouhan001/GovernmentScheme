@@ -1,0 +1,149 @@
+{% extends 'base.html' %}
+
+{% block title %}Your Results{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <!-- User Profile Summary -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h4 class="mb-3"><i class="fas fa-user-circle text-primary me-2"></i>Your Profile</h4>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <p class="mb-1"><strong>Age:</strong> {{ user.age }} years</p>
+                            <p class="mb-1"><strong>Gender:</strong> {{ user.gender }}</p>
+                        </div>
+                        <div class="col-md-4">
+                            <p class="mb-1"><strong>Category:</strong> {{ user.category }}</p>
+                            <p class="mb-1"><strong>Occupation:</strong> {{ user.occupation }}</p>
+                        </div>
+                        <div class="col-md-4">
+                            <p class="mb-1"><strong>Income:</strong> ₹{{ "{:,.0f}".format(user.annual_income) }}</p>
+                            <p class="mb-1"><strong>District:</strong> {{ user.district }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                    <div class="bg-light rounded p-3 d-inline-block">
+                        <h2 class="text-success mb-0">{{ total_found }}</h2>
+                        <small class="text-muted">Schemes Found</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% if schemes %}
+    <!-- Results Header -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h3><i class="fas fa-clipboard-list text-primary me-2"></i>Eligible Schemes</h3>
+        <a href="/find-schemes" class="btn btn-outline-primary">
+            <i class="fas fa-redo me-1"></i>Search Again
+        </a>
+    </div>
+
+    <!-- Scheme Cards -->
+    {% for scheme, score, reasons in schemes %}
+    <div class="card scheme-card mb-4">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="d-flex align-items-start justify-content-between">
+                        <div>
+                            <h5 class="card-title mb-2">
+                                <span class="badge bg-secondary me-2">#{{ loop.index }}</span>
+                                {{ scheme.scheme_name }}
+                            </h5>
+                            <p class="text-muted mb-2">
+                                <i class="fas fa-map-marker-alt me-1"></i>{{ scheme.state_name }}
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Match Reasons -->
+                    {% if reasons %}
+                    <div class="mb-3">
+                        <strong class="text-success"><i class="fas fa-check-circle me-1"></i>Why you're eligible:</strong>
+                        <ul class="mb-0 mt-1">
+                            {% for reason in reasons[:3] %}
+                            <li class="text-muted">{{ reason }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+                    
+                    <!-- Benefits Preview -->
+                    {% if scheme.benefits %}
+                    <div class="mb-3">
+                        <strong><i class="fas fa-gift text-warning me-1"></i>Key Benefits:</strong>
+                        <ul class="mb-0 mt-1">
+                            {% for benefit in scheme.benefits[:2] %}
+                            <li>{{ benefit[:150] }}{% if benefit|length > 150 %}...{% endif %}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+                    
+                    <!-- Actions -->
+                    <div class="mt-3">
+                        <a href="{{ scheme.scheme_url }}" target="_blank" class="btn btn-primary btn-sm me-2">
+                            <i class="fas fa-external-link-alt me-1"></i>Official Website
+                        </a>
+                        <a href="/scheme/{{ loop.index0 }}" class="btn btn-outline-secondary btn-sm">
+                            <i class="fas fa-info-circle me-1"></i>View Full Details
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 text-md-end mt-3 mt-md-0">
+                    <!-- Score Display -->
+                    <div class="text-center">
+                        <div class="score-badge 
+                            {% if score >= 75 %}bg-success
+                            {% elif score >= 50 %}bg-primary
+                            {% else %}bg-warning{% endif %} text-white mb-2">
+                            {{ "%.0f"|format(score) }}/100
+                        </div>
+                        <div>
+                            {% set stars = (score / 20)|int %}
+                            {% for i in range(5) %}
+                                {% if i < stars %}
+                                <i class="fas fa-star text-warning"></i>
+                                {% else %}
+                                <i class="far fa-star text-muted"></i>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        <small class="text-muted">Match Score</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    
+    {% else %}
+    <!-- No Results -->
+    <div class="card text-center p-5">
+        <div class="card-body">
+            <i class="fas fa-search fa-4x text-muted mb-4"></i>
+            <h3>No Schemes Found</h3>
+            <p class="text-muted mb-4">We couldn't find schemes matching your profile. This could be because:</p>
+            <ul class="list-unstyled text-muted">
+                <li><i class="fas fa-times-circle text-danger me-2"></i>Age outside eligible ranges</li>
+                <li><i class="fas fa-times-circle text-danger me-2"></i>Income exceeds scheme limits</li>
+                <li><i class="fas fa-times-circle text-danger me-2"></i>State-specific restrictions</li>
+            </ul>
+            <a href="/find-schemes" class="btn btn-primary mt-3">
+                <i class="fas fa-redo me-2"></i>Try Different Criteria
+            </a>
+            <a href="/all-schemes" class="btn btn-outline-secondary mt-3 ms-2">
+                <i class="fas fa-list me-2"></i>Browse All Schemes
+            </a>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

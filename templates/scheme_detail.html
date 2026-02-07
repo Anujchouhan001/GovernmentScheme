@@ -1,0 +1,178 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ scheme.scheme_name }}{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <!-- Back Button -->
+    <a href="javascript:history.back()" class="btn btn-outline-primary mb-4">
+        <i class="fas fa-arrow-left me-2"></i>Back to Results
+    </a>
+
+    <!-- Scheme Header -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <div class="row align-items-center">
+                <div class="col-md-9">
+                    <h2 class="mb-2">{{ scheme.scheme_name }}</h2>
+                    <p class="text-muted mb-2">
+                        <i class="fas fa-map-marker-alt me-1"></i>{{ scheme.state_name }}
+                    </p>
+                    <a href="{{ scheme.scheme_url }}" target="_blank" class="btn btn-success">
+                        <i class="fas fa-external-link-alt me-2"></i>Apply on Official Website
+                    </a>
+                </div>
+                <div class="col-md-3 text-md-end">
+                    <i class="fas fa-landmark fa-5x text-primary opacity-25"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-8">
+            <!-- Scheme Details -->
+            <div class="card mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0"><i class="fas fa-info-circle me-2"></i>Scheme Details</h5>
+                </div>
+                <div class="card-body">
+                    <p>{{ scheme.details }}</p>
+                </div>
+            </div>
+
+            <!-- Benefits -->
+            {% if scheme.benefits %}
+            <div class="card mb-4">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0"><i class="fas fa-gift me-2"></i>Benefits</h5>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        {% for benefit in scheme.benefits %}
+                        <li class="list-group-item">
+                            <i class="fas fa-check-circle text-success me-2"></i>{{ benefit }}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- Eligibility -->
+            {% if scheme.eligibility %}
+            <div class="card mb-4">
+                <div class="card-header bg-info text-white">
+                    <h5 class="mb-0"><i class="fas fa-clipboard-check me-2"></i>Eligibility Criteria</h5>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        {% for criteria in scheme.eligibility %}
+                        <li class="list-group-item">
+                            <i class="fas fa-arrow-right text-info me-2"></i>{{ criteria }}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- Application Process -->
+            {% if scheme.application_process %}
+            <div class="card mb-4">
+                <div class="card-header bg-warning">
+                    <h5 class="mb-0"><i class="fas fa-tasks me-2"></i>How to Apply</h5>
+                </div>
+                <div class="card-body">
+                    <ol class="list-group list-group-numbered">
+                        {% for step in scheme.application_process %}
+                        <li class="list-group-item">{{ step }}</li>
+                        {% endfor %}
+                    </ol>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+
+        <div class="col-lg-4">
+            <!-- Documents Required -->
+            {% if scheme.documents_required %}
+            <div class="card mb-4">
+                <div class="card-header bg-secondary text-white">
+                    <h5 class="mb-0"><i class="fas fa-file-alt me-2"></i>Documents Required</h5>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled mb-0">
+                        {% for doc in scheme.documents_required %}
+                        <li class="mb-2">
+                            <i class="fas fa-file text-secondary me-2"></i>{{ doc }}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- Quick Links -->
+            <div class="card mb-4">
+                <div class="card-header bg-dark text-white">
+                    <h5 class="mb-0"><i class="fas fa-link me-2"></i>Quick Links</h5>
+                </div>
+                <div class="card-body">
+                    <a href="{{ scheme.scheme_url }}" target="_blank" class="btn btn-primary w-100 mb-2">
+                        <i class="fas fa-external-link-alt me-2"></i>Official Scheme Page
+                    </a>
+                    <a href="https://www.myscheme.gov.in" target="_blank" class="btn btn-outline-primary w-100">
+                        <i class="fas fa-globe me-2"></i>MyScheme.gov.in
+                    </a>
+                </div>
+            </div>
+
+            <!-- Share -->
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0"><i class="fas fa-share-alt me-2"></i>Share This Scheme</h5>
+                </div>
+                <div class="card-body">
+                    <div class="d-grid gap-2">
+                        <a href="https://wa.me/?text=Check out this government scheme: {{ scheme.scheme_name }} - {{ scheme.scheme_url }}" 
+                           target="_blank" class="btn btn-success">
+                            <i class="fab fa-whatsapp me-2"></i>Share on WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQs -->
+    {% if scheme.faqs %}
+    <div class="card mt-4">
+        <div class="card-header bg-primary text-white">
+            <h5 class="mb-0"><i class="fas fa-question-circle me-2"></i>Frequently Asked Questions</h5>
+        </div>
+        <div class="card-body">
+            <div class="accordion" id="faqAccordion">
+                {% for faq in scheme.faqs %}
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faq{{ loop.index }}">
+                        <button class="accordion-button {% if loop.index > 1 %}collapsed{% endif %}" type="button" 
+                                data-bs-toggle="collapse" data-bs-target="#collapse{{ loop.index }}">
+                            <strong>Q{{ loop.index }}:</strong>&nbsp;{{ faq.question }}
+                        </button>
+                    </h2>
+                    <div id="collapse{{ loop.index }}" 
+                         class="accordion-collapse collapse {% if loop.index == 1 %}show{% endif %}" 
+                         data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            <strong>Answer:</strong> {{ faq.answer }}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,342 @@
+{% extends 'base.html' %}
+
+{% block title %}Find Eligible Schemes{% endblock %}
+
+{% block extra_css %}
+<style>
+    .form-section {
+        background: white;
+        border-radius: 12px;
+        padding: 25px;
+        margin-bottom: 25px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        border-left: 4px solid #007bff;
+    }
+    
+    .section-title {
+        color: #333;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #f0f0f0;
+    }
+    
+    .form-label {
+        font-weight: 600;
+        color: #444;
+        margin-bottom: 5px;
+    }
+    
+    .form-control, .form-select {
+        border-radius: 8px;
+        padding: 10px 15px;
+        border: 1px solid #ddd;
+    }
+    
+    .form-control:focus, .form-select:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 0 3px rgba(0,123,255,0.1);
+    }
+    
+    .btn-yes-no {
+        min-width: 80px;
+    }
+    
+    .btn-yes-no.active {
+        background-color: #007bff;
+        color: white;
+    }
+    
+    .conditional-section {
+        display: none;
+        padding-left: 20px;
+        border-left: 3px solid #e0e0e0;
+        margin-top: 10px;
+    }
+    
+    .conditional-section.show {
+        display: block;
+    }
+    
+    .progress-container {
+        position: sticky;
+        top: 70px;
+        z-index: 100;
+        background: white;
+        padding: 15px 0;
+        margin-bottom: 20px;
+    }
+    
+    .progress {
+        height: 8px;
+        border-radius: 4px;
+    }
+    
+    .section-nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 20px;
+    }
+    
+    .section-nav-btn {
+        padding: 8px 15px;
+        border-radius: 20px;
+        border: 1px solid #ddd;
+        background: white;
+        color: #666;
+        cursor: pointer;
+        font-size: 14px;
+        transition: all 0.2s;
+    }
+    
+    .section-nav-btn:hover, .section-nav-btn.active {
+        background: #007bff;
+        color: white;
+        border-color: #007bff;
+    }
+    
+    .section-nav-btn.completed {
+        background: #28a745;
+        color: white;
+        border-color: #28a745;
+    }
+    
+    .question-row {
+        background: #f8f9fa;
+        border-radius: 8px;
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+    
+    .help-text {
+        font-size: 12px;
+        color: #888;
+        margin-top: 5px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <!-- Header -->
+            <div class="text-center mb-4">
+                <h1 class="mb-3"><i class="fas fa-search text-primary me-2"></i>Bihar Government Scheme Finder</h1>
+                <p class="lead text-muted">Answer the questions below to find government schemes you are eligible for</p>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="progress-container">
+                <div class="d-flex justify-content-between mb-2">
+                    <span class="text-muted" id="progress-text">Section 1 of {{ sections|length }}</span>
+                    <span class="text-muted" id="progress-percent">0%</span>
+                </div>
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 0%" id="progress-bar"></div>
+                </div>
+            </div>
+
+            <!-- Section Navigation -->
+            <div class="section-nav mb-4" id="section-nav">
+                {% for section in sections %}
+                <button type="button" class="section-nav-btn {% if loop.first %}active{% endif %}" 
+                        onclick="goToSection({{ loop.index0 }})">
+                    {{ loop.index }}. {{ section }}
+                </button>
+                {% endfor %}
+            </div>
+
+            <form action="/results" method="POST" id="questionnaire-form">
+                {% for section in sections %}
+                <div class="form-section section-panel" id="section-{{ loop.index0 }}" 
+                     style="{% if not loop.first %}display: none;{% endif %}">
+                    <h4 class="section-title">
+                        <i class="fas fa-{{ section_icons.get(section, 'question-circle') }} me-2"></i>
+                        {{ section }}
+                    </h4>
+                    
+                    <div class="row g-3">
+                        {% for question in questions %}
+                        {% if question.section == section %}
+                        <div class="col-md-{% if question.type == 'choice' %}12{% else %}6{% endif %} question-row" 
+                             id="q-{{ question.id }}" {% if question.condition %}data-condition="{{ question.condition }}"{% endif %}>
+                            <label class="form-label">
+                                {{ question.question }}
+                                {% if question.required %}<span class="text-danger">*</span>{% endif %}
+                            </label>
+                            
+                            {% if question.type == 'boolean' %}
+                            <div class="btn-group w-100" role="group">
+                                <input type="radio" class="btn-check" name="{{ question.id }}" id="{{ question.id }}_yes" value="yes" autocomplete="off">
+                                <label class="btn btn-outline-success btn-yes-no" for="{{ question.id }}_yes">
+                                    <i class="fas fa-check me-1"></i>Yes
+                                </label>
+                                <input type="radio" class="btn-check" name="{{ question.id }}" id="{{ question.id }}_no" value="no" autocomplete="off">
+                                <label class="btn btn-outline-danger btn-yes-no" for="{{ question.id }}_no">
+                                    <i class="fas fa-times me-1"></i>No
+                                </label>
+                            </div>
+                            
+                            {% elif question.type == 'number' %}
+                            <input type="number" class="form-control" name="{{ question.id }}" 
+                                   placeholder="Enter a number"
+                                   {% if question.min is defined %}min="{{ question.min }}"{% endif %}
+                                   {% if question.max is defined %}max="{{ question.max }}"{% endif %}
+                                   {% if question.required %}required{% endif %}>
+                            {% if question.min is defined or question.max is defined %}
+                            <div class="help-text">
+                                {% if question.min is defined and question.max is defined %}
+                                Range: {{ question.min }} - {{ question.max }}
+                                {% elif question.min is defined %}
+                                Minimum: {{ question.min }}
+                                {% elif question.max is defined %}
+                                Maximum: {{ question.max }}
+                                {% endif %}
+                            </div>
+                            {% endif %}
+                            
+                            {% elif question.type == 'choice' %}
+                            <div class="row g-2">
+                                {% for option in question.options %}
+                                <div class="col-md-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="{{ question.id }}" 
+                                               value="{{ option }}" id="{{ question.id }}_{{ loop.index }}">
+                                        <label class="form-check-label" for="{{ question.id }}_{{ loop.index }}">
+                                            {{ option }}
+                                        </label>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                            
+                            {% else %}
+                            <input type="text" class="form-control" name="{{ question.id }}" 
+                                   placeholder="Enter your answer"
+                                   {% if question.required %}required{% endif %}>
+                            {% endif %}
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                    
+                    <!-- Navigation Buttons -->
+                    <div class="d-flex justify-content-between mt-4">
+                        {% if not loop.first %}
+                        <button type="button" class="btn btn-outline-secondary" onclick="prevSection()">
+                            <i class="fas fa-arrow-left me-2"></i>Previous
+                        </button>
+                        {% else %}
+                        <div></div>
+                        {% endif %}
+                        
+                        {% if loop.last %}
+                        <button type="submit" class="btn btn-primary btn-lg">
+                            <i class="fas fa-search me-2"></i>Find Eligible Schemes
+                        </button>
+                        {% else %}
+                        <button type="button" class="btn btn-primary" onclick="nextSection()">
+                            Next<i class="fas fa-arrow-right ms-2"></i>
+                        </button>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+            </form>
+            
+            <div class="text-center text-muted mt-4">
+                <p><i class="fas fa-lock me-1"></i>Your information is not stored and is only used for matching schemes</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+let currentSection = 0;
+const totalSections = {{ sections|length }};
+const sectionPanels = document.querySelectorAll('.section-panel');
+const sectionNavBtns = document.querySelectorAll('.section-nav-btn');
+
+function updateProgress() {
+    const percent = Math.round(((currentSection + 1) / totalSections) * 100);
+    document.getElementById('progress-bar').style.width = percent + '%';
+    document.getElementById('progress-percent').textContent = percent + '%';
+    document.getElementById('progress-text').textContent = `Section ${currentSection + 1} of ${totalSections}`;
+    
+    // Update nav buttons
+    sectionNavBtns.forEach((btn, index) => {
+        btn.classList.remove('active');
+        if (index === currentSection) {
+            btn.classList.add('active');
+        }
+        if (index < currentSection) {
+            btn.classList.add('completed');
+        }
+    });
+}
+
+function showSection(index) {
+    sectionPanels.forEach((panel, i) => {
+        panel.style.display = i === index ? 'block' : 'none';
+    });
+    currentSection = index;
+    updateProgress();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function nextSection() {
+    if (currentSection < totalSections - 1) {
+        showSection(currentSection + 1);
+    }
+}
+
+function prevSection() {
+    if (currentSection > 0) {
+        showSection(currentSection - 1);
+    }
+}
+
+function goToSection(index) {
+    showSection(index);
+}
+
+// Handle conditional questions
+document.querySelectorAll('[data-condition]').forEach(elem => {
+    const condition = elem.dataset.condition;
+    // Parse condition and add event listeners
+    // This is a simplified version - in production, use more robust parsing
+    
+    const match = condition.match(/(\w+)\s*==\s*'?([^']+)'?/);
+    if (match) {
+        const fieldName = match[1];
+        const expectedValue = match[2];
+        
+        // Find the controlling input
+        const inputs = document.querySelectorAll(`[name="${fieldName}"]`);
+        inputs.forEach(input => {
+            input.addEventListener('change', function() {
+                let actualValue = this.value;
+                if (this.type === 'radio' && this.checked) {
+                    actualValue = this.value;
+                }
+                
+                let conditionMet = false;
+                if (expectedValue === 'True') {
+                    conditionMet = actualValue === 'yes';
+                } else if (expectedValue === 'False') {
+                    conditionMet = actualValue === 'no';
+                } else {
+                    conditionMet = actualValue === expectedValue;
+                }
+                
+                elem.style.display = conditionMet ? 'block' : 'none';
+            });
+        });
+    }
+});
+
+// Initialize progress
+updateProgress();
+</script>
+{% endblock %}

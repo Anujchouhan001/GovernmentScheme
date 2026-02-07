@@ -1,0 +1,408 @@
+{% extends 'base.html' %}
+
+{% block title %}Questionnaire - Section Based{% endblock %}
+
+{% block extra_css %}
+<style>
+    .section-container {
+        max-width: 800px;
+        margin: 40px auto;
+        background: white;
+        border-radius: 16px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        overflow: hidden;
+    }
+    
+    .section-header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 30px;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+    
+    .section-description {
+        font-size: 1rem;
+        opacity: 0.95;
+    }
+    
+    .progress-bar-container {
+        background: rgba(255,255,255,0.2);
+        height: 8px;
+        border-radius: 4px;
+        margin-top: 20px;
+        overflow: hidden;
+    }
+    
+    .progress-bar-fill {
+        background: white;
+        height: 100%;
+        transition: width 0.3s ease;
+    }
+    
+    .progress-text {
+        margin-top: 10px;
+        font-size: 0.9rem;
+        opacity: 0.9;
+    }
+    
+    .section-content {
+        padding: 40px;
+    }
+    
+    .question-group {
+        margin-bottom: 30px;
+    }
+    
+    .question-label {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 12px;
+        display: block;
+    }
+    
+    .question-required {
+        color: #e74c3c;
+        margin-left: 4px;
+    }
+    
+    .form-control {
+        border: 2px solid #e0e0e0;
+        border-radius: 8px;
+        padding: 12px 16px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+    }
+    
+    .form-control:focus {
+        border-color: #667eea;
+        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        outline: none;
+    }
+    
+    .radio-group, .checkbox-group {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+    
+    .radio-option, .checkbox-option {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 20px;
+        border: 2px solid #e0e0e0;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .radio-option:hover, .checkbox-option:hover {
+        border-color: #667eea;
+        background: #f8f9ff;
+    }
+    
+    .radio-option input, .checkbox-option input {
+        cursor: pointer;
+    }
+    
+    .section-navigation {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 40px;
+        padding-top: 30px;
+        border-top: 2px solid #f0f0f0;
+    }
+    
+    .btn {
+        padding: 12px 32px;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 600;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .btn-primary {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+    }
+    
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+    }
+    
+    .btn-secondary {
+        background: #e0e0e0;
+        color: #666;
+    }
+    
+    .btn-secondary:hover {
+        background: #d0d0d0;
+    }
+    
+    .section-icon {
+        font-size: 3rem;
+        margin-bottom: 15px;
+    }
+    
+    .validation-error {
+        color: #e74c3c;
+        font-size: 0.9rem;
+        margin-top: 6px;
+        display: none;
+    }
+    
+    .validation-error.show {
+        display: block;
+    }
+    
+    .help-text {
+        font-size: 0.85rem;
+        color: #999;
+        margin-top: 6px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="section-container">
+        <!-- Section Header -->
+        <div class="section-header">
+            <div class="section-icon">
+                <i class="fas fa-{{ 'user' if 'Basic' in section.name else 'clipboard-list' }}"></i>
+            </div>
+            <h1 class="section-title">{{ section.name }}</h1>
+            <p class="section-description">{{ section.description }}</p>
+            
+            <!-- Progress Bar -->
+            <div class="progress-bar-container">
+                <div class="progress-bar-fill" style="width: {{ progress.progress_percentage }}%"></div>
+            </div>
+            <div class="progress-text">
+                Section {{ section.order }} of {{ progress.total_sections }} 
+                ({{ progress.progress_percentage }}% complete)
+            </div>
+        </div>
+        
+        <!-- Section Content -->
+        <div class="section-content">
+            <form method="POST" action="/submit-section/{{ questionnaire_id }}" id="sectionForm">
+                <input type="hidden" name="section_id" value="{{ section.id }}">
+                
+                {% for question in section.questions %}
+                <div class="question-group" data-question-id="{{ question.id }}">
+                    <label class="question-label">
+                        {{ question.text }}
+                        {% if question.required %}
+                        <span class="question-required">*</span>
+                        {% endif %}
+                    </label>
+                    
+                    {% if question.type == 'text' %}
+                    <input type="text" 
+                           class="form-control" 
+                           name="{{ question.id }}" 
+                           id="{{ question.id }}"
+                           value="{{ responses.get(question.id, '') }}"
+                           {% if question.required %}required{% endif %}>
+                    
+                    {% elif question.type == 'number' %}
+                    <input type="number" 
+                           class="form-control" 
+                           name="{{ question.id }}" 
+                           id="{{ question.id }}"
+                           value="{{ responses.get(question.id, '') }}"
+                           {% if question.required %}required{% endif %}>
+                    
+                    {% elif question.type == 'yes_no' %}
+                    <div class="radio-group">
+                        <label class="radio-option">
+                            <input type="radio" 
+                                   name="{{ question.id }}" 
+                                   value="yes"
+                                   {% if responses.get(question.id) == True or responses.get(question.id) == 'yes' %}checked{% endif %}
+                                   {% if question.required %}required{% endif %}>
+                            <span>Yes</span>
+                        </label>
+                        <label class="radio-option">
+                            <input type="radio" 
+                                   name="{{ question.id }}" 
+                                   value="no"
+                                   {% if responses.get(question.id) == False or responses.get(question.id) == 'no' %}checked{% endif %}
+                                   {% if question.required %}required{% endif %}>
+                            <span>No</span>
+                        </label>
+                    </div>
+                    
+                    {% elif question.type == 'select' %}
+                    <select class="form-control" 
+                            name="{{ question.id }}" 
+                            id="{{ question.id }}"
+                            {% if question.required %}required{% endif %}>
+                        <option value="">-- Select an option --</option>
+                        {% for option in question.options %}
+                        <option value="{{ option }}" 
+                                {% if responses.get(question.id) == option %}selected{% endif %}>
+                            {{ option }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                    
+                    {% endif %}
+                    
+                    <div class="validation-error" data-for="{{ question.id }}">
+                        This field is required
+                    </div>
+                </div>
+                {% endfor %}
+                
+                <!-- Navigation Buttons -->
+                <div class="section-navigation">
+                    <a href="{{ url_for('home') }}" class="btn btn-secondary">
+                        <i class="fas fa-home me-2"></i>Cancel
+                    </a>
+                    <button type="submit" class="btn btn-primary">
+                        Continue <i class="fas fa-arrow-right ms-2"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('sectionForm');
+    
+    // Function to evaluate conditions
+    function evaluateCondition(condition, formData) {
+        if (!condition) return true;
+        
+        const field = condition.field;
+        const operator = condition.operator;
+        const expectedValue = condition.value;
+        const actualValue = formData[field];
+        
+        switch (operator) {
+            case 'equals':
+                return actualValue == expectedValue;
+            case 'not_equals':
+                return actualValue != expectedValue;
+            case 'in':
+                return Array.isArray(expectedValue) && expectedValue.includes(actualValue);
+            case 'not_in':
+                return Array.isArray(expectedValue) && !expectedValue.includes(actualValue);
+            case '>=':
+                return parseFloat(actualValue) >= parseFloat(expectedValue);
+            case '<=':
+                return parseFloat(actualValue) <= parseFloat(expectedValue);
+            case '>':
+                return parseFloat(actualValue) > parseFloat(expectedValue);
+            case '<':
+                return parseFloat(actualValue) < parseFloat(expectedValue);
+            default:
+                return true;
+        }
+    }
+    
+    // Function to get current form data
+    function getCurrentFormData() {
+        const formData = new FormData(form);
+        const data = {};
+        for (let [key, value] of formData.entries()) {
+            if (value === 'yes') data[key] = true;
+            else if (value === 'no') data[key] = false;
+            else data[key] = value;
+        }
+        return data;
+    }
+    
+    // Function to show/hide conditional questions
+    function updateConditionalQuestions() {
+        const formData = getCurrentFormData();
+        const questions = {{ section.questions | tojson }};
+        
+        questions.forEach(function(question) {
+            const questionDiv = document.querySelector(`[data-question-id="${question.id}"]`);
+            if (questionDiv && question.condition) {
+                const shouldShow = evaluateCondition(question.condition, formData);
+                questionDiv.style.display = shouldShow ? 'block' : 'none';
+                
+                // Clear value if hidden
+                if (!shouldShow) {
+                    const inputs = questionDiv.querySelectorAll('input, select');
+                    inputs.forEach(input => {
+                        if (input.type === 'radio' || input.type === 'checkbox') {
+                            input.checked = false;
+                        } else {
+                            input.value = '';
+                        }
+                    });
+                }
+            }
+        });
+    }
+    
+    // Add event listeners to all form inputs
+    const inputs = form.querySelectorAll('input, select');
+    inputs.forEach(function(input) {
+        input.addEventListener('change', updateConditionalQuestions);
+        input.addEventListener('input', updateConditionalQuestions);
+    });
+    
+    // Initial update on page load
+    updateConditionalQuestions();
+    
+    // Form submission validation
+    form.addEventListener('submit', function(e) {
+        // Basic validation for visible required fields only
+        let isValid = true;
+        const requiredInputs = this.querySelectorAll('[required]');
+        
+        requiredInputs.forEach(input => {
+            const questionDiv = input.closest('[data-question-id]');
+            const isVisible = questionDiv && questionDiv.style.display !== 'none';
+            
+            if (isVisible) {
+                const errorDiv = document.querySelector(`[data-for="${input.id || input.name}"]`);
+                if (!input.value || (input.type === 'radio' && !document.querySelector(`[name="${input.name}"]:checked`))) {
+                    if (errorDiv) {
+                        errorDiv.classList.add('show');
+                    }
+                    isValid = false;
+                } else {
+                    if (errorDiv) {
+                        errorDiv.classList.remove('show');
+                    }
+                }
+            }
+        });
+        
+        if (!isValid) {
+            e.preventDefault();
+            alert('Please fill in all required fields');
+            return false;
+        }
+    });
+
+    // Hide error messages on input
+    document.querySelectorAll('.form-control, input[type="radio"]').forEach(input => {
+        input.addEventListener('change', function() {
+            const errorDiv = document.querySelector(`[data-for="${this.id || this.name}"]`);
+            if (errorDiv && this.value) {
+                errorDiv.classList.remove('show');
+            }
+        });
+    });
+});
+</script>
+{% endblock %}

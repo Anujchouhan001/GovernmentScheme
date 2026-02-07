@@ -1,0 +1,408 @@
+{
+  "sections": [
+    {
+      "id": "section_a",
+      "name": "Section A: Basic Information",
+      "description": "Let's start with some basic information about you",
+      "order": 1,
+      "status": "completed",
+      "questions": [
+        {
+          "id": "state",
+          "text": "Which state do you live in?",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Bihar",
+            "Other"
+          ],
+          "condition": null
+        },
+        {
+          "id": "age",
+          "text": "What is your age?",
+          "type": "number",
+          "required": true,
+          "options": [],
+          "condition": null
+        },
+        {
+          "id": "gender",
+          "text": "What is your gender?",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Male",
+            "Female",
+            "Transgender",
+            "Other"
+          ],
+          "condition": null
+        },
+        {
+          "id": "category",
+          "text": "Which social category do you belong to?",
+          "type": "select",
+          "required": true,
+          "options": [
+            "General",
+            "OBC (Other Backward Class)",
+            "EBC (Extremely Backward Class)",
+            "SC (Scheduled Caste)",
+            "ST (Scheduled Tribe)",
+            "Minority"
+          ],
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "section_b",
+      "name": "Section B: Economic Status",
+      "description": "Now let's understand your economic situation",
+      "order": 2,
+      "status": "completed",
+      "questions": [
+        {
+          "id": "annual_income",
+          "text": "What is your annual family income (in Rupees)?",
+          "type": "number",
+          "required": true,
+          "options": [],
+          "condition": null
+        },
+        {
+          "id": "is_bpl",
+          "text": "Do you have a BPL (Below Poverty Line) card?",
+          "type": "yes_no",
+          "required": true,
+          "options": [],
+          "condition": null
+        },
+        {
+          "id": "is_ultra_poor",
+          "text": "Do you belong to ultra-poor category?",
+          "type": "yes_no",
+          "required": true,
+          "options": [],
+          "condition": null
+        },
+        {
+          "id": "belong_to_rural_area",
+          "text": "Do you live in a rural area?",
+          "type": "yes_no",
+          "required": true,
+          "options": [],
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "section_c",
+      "name": "Section C: Occupation & Employment",
+      "description": "Tell us about your work and occupation",
+      "order": 3,
+      "status": "in_progress",
+      "questions": [
+        {
+          "id": "occupation",
+          "text": "What is your primary occupation?",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Farmer",
+            "Construction Worker",
+            "Student",
+            "Business Owner",
+            "Government Employee",
+            "Private Employee",
+            "Self-Employed",
+            "Unemployed",
+            "Retired",
+            "Other"
+          ],
+          "condition": null
+        },
+        {
+          "id": "is_farmer",
+          "text": "Are you a farmer?",
+          "type": "yes_no",
+          "required": true,
+          "options": [],
+          "condition": null
+        },
+        {
+          "id": "is_construction_worker",
+          "text": "Are you a construction worker?",
+          "type": "yes_no",
+          "required": true,
+          "options": [],
+          "condition": null
+        },
+        {
+          "id": "is_student",
+          "text": "Are you currently a student?",
+          "type": "yes_no",
+          "required": true,
+          "options": [],
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "section_d",
+      "name": "Section D: Land & Property",
+      "description": "Information about land ownership and property",
+      "order": 4,
+      "status": "not_started",
+      "questions": [
+        {
+          "id": "land_owned_acres",
+          "text": "How much land do you own (in acres)?",
+          "type": "number",
+          "required": true,
+          "options": [],
+          "condition": null
+        },
+        {
+          "id": "owns_house",
+          "text": "Do you own a house?",
+          "type": "yes_no",
+          "required": true,
+          "options": [],
+          "condition": null
+        },
+        {
+          "id": "landless_houseless",
+          "text": "Are you landless and houseless?",
+          "type": "yes_no",
+          "required": true,
+          "options": [],
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "section_e",
+      "name": "Section E: Farmer Details",
+      "description": "Additional information for farmers",
+      "order": 5,
+      "status": "not_started",
+      "questions": [
+        {
+          "id": "dbt_registered",
+          "text": "Are you registered on DBT (Direct Benefit Transfer) portal?",
+          "type": "yes_no",
+          "required": true,
+          "options": [],
+          "condition": null
+        },
+        {
+          "id": "crop_damage_percent",
+          "text": "Have you experienced crop damage? If yes, what percentage?",
+          "type": "number",
+          "required": true,
+          "options": [],
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "section_f",
+      "name": "Section F: Construction Worker Details",
+      "description": "Additional information for construction workers",
+      "order": 6,
+      "status": "not_started",
+      "questions": [
+        {
+          "id": "bbocwwb_registered",
+          "text": "Are you registered with Bihar Building & Other Construction Workers Welfare Board (BBOCWWB)?",
+          "type": "yes_no",
+          "required": true,
+          "options": [],
+          "condition": null
+        },
+        {
+          "id": "bbocwwb_membership_years",
+          "text": "If registered, how many years of membership do you have?",
+          "type": "number",
+          "required": false,
+          "options": [],
+          "condition": null
+        },
+        {
+          "id": "bbocwwb_active_membership",
+          "text": "Is your BBOCWWB membership currently active?",
+          "type": "yes_no",
+          "required": false,
+          "options": [],
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "section_g",
+      "name": "Section G: Education Details",
+      "description": "Information about your education",
+      "order": 7,
+      "status": "not_started",
+      "questions": [
+        {
+          "id": "education_level",
+          "text": "What is your current education level?",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Primary (1-5)",
+            "Middle (6-8)",
+            "Secondary (9-10)",
+            "Higher Secondary (11-12)",
+            "Undergraduate",
+            "Postgraduate",
+            "Doctorate"
+          ],
+          "condition": null
+        },
+        {
+          "id": "passed_10th_first_division",
+          "text": "Have you passed 10th with first division?",
+          "type": "yes_no",
+          "required": false,
+          "options": [],
+          "condition": null
+        },
+        {
+          "id": "passed_12th",
+          "text": "Have you passed 12th?",
+          "type": "yes_no",
+          "required": false,
+          "options": [],
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "section_h",
+      "name": "Section H: Family Information",
+      "description": "Details about your family",
+      "order": 8,
+      "status": "not_started",
+      "questions": [
+        {
+          "id": "marital_status",
+          "text": "What is your marital status?",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Unmarried",
+            "Married",
+            "Divorced",
+            "Widowed",
+            "Abandoned",
+            "Remarried"
+          ],
+          "condition": null
+        },
+        {
+          "id": "num_children",
+          "text": "How many children do you have?",
+          "type": "number",
+          "required": false,
+          "options": [],
+          "condition": null
+        },
+        {
+          "id": "num_girl_children",
+          "text": "How many girl children do you have?",
+          "type": "number",
+          "required": false,
+          "options": [],
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "section_i",
+      "name": "Section I: Identity Documents",
+      "description": "Information about your identity documents",
+      "order": 9,
+      "status": "not_started",
+      "questions": [
+        {
+          "id": "has_aadhaar",
+          "text": "Do you have an Aadhaar card?",
+          "type": "yes_no",
+          "required": true,
+          "options": [],
+          "condition": null
+        },
+        {
+          "id": "bank_account_linked_aadhaar",
+          "text": "Is your bank account linked with Aadhaar?",
+          "type": "yes_no",
+          "required": true,
+          "options": [],
+          "condition": null
+        }
+      ]
+    },
+    {
+      "id": "section_j",
+      "name": "Section J: Health & Disability",
+      "description": "Health and disability related information",
+      "order": 10,
+      "status": "not_started",
+      "questions": [
+        {
+          "id": "has_disability",
+          "text": "Do you have any disability?",
+          "type": "yes_no",
+          "required": true,
+          "options": [],
+          "condition": null
+        },
+        {
+          "id": "disability_percentage",
+          "text": "If yes, what is the disability percentage?",
+          "type": "number",
+          "required": false,
+          "options": [],
+          "condition": {
+            "field": "has_disability",
+            "operator": "equals",
+            "value": true
+          }
+        },
+        {
+          "id": "has_medical_condition",
+          "text": "Do you have any chronic medical condition?",
+          "type": "yes_no",
+          "required": true,
+          "options": [],
+          "condition": null
+        }
+      ]
+    }
+  ],
+  "current_section_id": "section_c",
+  "user_responses": {
+    "state": "Bihar",
+    "age": 25,
+    "gender": "Male",
+    "category": "General",
+    "annual_income": 50000,
+    "is_bpl": true,
+    "is_ultra_poor": false,
+    "belong_to_rural_area": true,
+    "occupation": "Farmer",
+    "is_farmer": true,
+    "is_construction_worker": false,
+    "is_student": false
+  },
+  "progress": {
+    "total_sections": 10,
+    "completed_sections": 2,
+    "current_section": "Section C: Occupation & Employment",
+    "progress_percentage": 20
+  }
+}

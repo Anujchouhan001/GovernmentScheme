@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Eligible Bihar Schemes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .results-summary {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .results-summary h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #4CAF50;
+        }
+
+        .results-summary p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .schemes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .scheme-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .scheme-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 45px rgba(0,0,0,0.15);
+        }
+
+        .scheme-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #4CAF50, #45a049);
+        }
+
+        .scheme-header {
+            margin-bottom: 20px;
+        }
+
+        .scheme-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .eligibility-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .scheme-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .benefits-list {
+            margin-bottom: 20px;
+        }
+
+        .benefits-list h4 {
+            color: #333;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .benefit-item {
+            background: #f8f9fa;
+            padding: 8px 12px;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+            color: #555;
+            border-left: 3px solid #4CAF50;
+        }
+
+        .eligibility-criteria {
+            margin-bottom: 20px;
+        }
+
+        .eligibility-criteria h4 {
+            color: #333;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .criteria-item {
+            background: #e8f5e8;
+            padding: 8px 12px;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            color: #2e7d32;
+            border-left: 3px solid #4CAF50;
+        }
+
+        .scheme-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+        }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+            box-shadow: 0 8px 20px rgba(108, 117, 125, 0.3);
+        }
+
+        .no-schemes {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .no-schemes h2 {
+            color: #ff6b35;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .no-schemes p {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .back-actions {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .back-actions .btn {
+            margin: 0 10px;
+        }
+
+        @media (max-width: 768px) {
+            .schemes-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .scheme-card {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .scheme-actions {
+                flex-direction: column;
+            }
+
+            .btn {
+                text-align: center;
+            }
+        }
+
+        .loading {
+            text-align: center;
+            color: white;
+            padding: 50px;
+        }
+
+        .spinner {
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-top: 3px solid white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎯 Your Eligible Schemes</h1>
+            <p>100% matched schemes based on your responses</p>
+        </div>
+
+        {% if schemes %}
+        <div class="results-summary">
+            <h2>{{ total_schemes }} Scheme{{ 's' if total_schemes != 1 else '' }} Found!</h2>
+            <p>Great news! You are 100% eligible for the following Bihar government schemes.</p>
+        </div>
+
+        <div class="schemes-grid">
+            {% for scheme in schemes %}
+            <div class="scheme-card">
+                <div class="scheme-header">
+                    <h3 class="scheme-title">{{ scheme.name }}</h3>
+                    <span class="eligibility-badge">✅ 100% Eligible</span>
+                </div>
+
+                {% if scheme.description %}
+                <div class="scheme-description">
+                    {{ scheme.description }}
+                </div>
+                {% endif %}
+
+                {% if scheme.benefits %}
+                <div class="benefits-list">
+                    <h4>💰 Benefits:</h4>
+                    {% for benefit in scheme.benefits %}
+                    <div class="benefit-item">{{ benefit }}</div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                {% if scheme.eligibility_criteria %}
+                <div class="eligibility-criteria">
+                    <h4>📋 Eligibility Criteria:</h4>
+                    {% for qid, rules in scheme.eligibility_criteria.items() %}
+                        {% for rule in rules %}
+                            {% if rule.desc %}
+                            <div class="criteria-item">✔ {{ rule.desc }}</div>
+                            {% endif %}
+                        {% endfor %}
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                <div class="scheme-actions">
+                    <a href="/scheme/{{ scheme.name | urlencode }}" class="btn">View Details</a>
+                    <button class="btn btn-secondary" onclick="copySchemeInfo('{{ scheme.name }}')">Share Info</button>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        {% else %}
+        <div class="no-schemes">
+            <h2>😔 No Matching Schemes Found</h2>
+            <p>
+                We couldn't find any schemes that match 100% of your eligibility criteria. 
+                This might be because:
+            </p>
+            <ul style="text-align: left; max-width: 500px; margin: 0 auto 30px;">
+                <li>Your responses don't match current scheme requirements</li>
+                <li>Some schemes may have seasonal availability</li>
+                <li>New schemes might not be updated in our database yet</li>
+            </ul>
+            <p>
+                Don't worry! You can try answering the questionnaire again or 
+                check with local government offices for the most current information.
+            </p>
+        </div>
+        {% endif %}
+
+        <div class="back-actions">
+            <a href="/questionnaire" class="btn btn-secondary">Retake Questionnaire</a>
+            <a href="/" class="btn">Back to Home</a>
+            <button class="btn" onclick="window.print()">Print Results</button>
+        </div>
+    </div>
+
+    <script>
+        // Copy scheme information to clipboard
+        function copySchemeInfo(schemeName) {
+            const schemeCard = event.target.closest('.scheme-card');
+            const title = schemeCard.querySelector('.scheme-title').textContent;
+            const description = schemeCard.querySelector('.scheme-description');
+            const benefits = Array.from(schemeCard.querySelectorAll('.benefit-item'))
+                .map(item => `• ${item.textContent}`).join('\n');
+            
+            let info = `🏛️ ${title}\n\n`;
+            if (description) {
+                info += `📝 Description:\n${description.textContent.trim()}\n\n`;
+            }
+            if (benefits) {
+                info += `💰 Benefits:\n${benefits}\n\n`;
+            }
+            info += `✅ Status: 100% Eligible\n`;
+            info += `🔗 Source: Bihar Government Schemes Finder`;
+
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(info).then(() => {
+                    showNotification('Scheme information copied to clipboard!');
+                }).catch(() => {
+                    fallbackCopyTextToClipboard(info);
+                });
+            } else {
+                fallbackCopyTextToClipboard(info);
+            }
+        }
+
+        // Fallback copy function for older browsers
+        function fallbackCopyTextToClipboard(text) {
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+
+            try {
+                document.execCommand('copy');
+                showNotification('Scheme information copied to clipboard!');
+            } catch (err) {
+                showNotification('Unable to copy to clipboard', 'error');
+            }
+
+            document.body.removeChild(textArea);
+        }
+
+        // Show notification
+        function showNotification(message, type = 'success') {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: ${type === 'success' ? '#4CAF50' : '#f44336'};
+                color: white;
+                padding: 15px 25px;
+                border-radius: 10px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+                z-index: 1000;
+                animation: slideInRight 0.3s ease;
+            `;
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.animation = 'slideOutRight 0.3s ease';
+                setTimeout(() => {
+                    if (notification.parentNode) {
+                        notification.parentNode.removeChild(notification);
+                    }
+                }, 300);
+            }, 3000);
+        }
+
+        // Add CSS animations for notifications
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideInRight {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            @keyframes slideOutRight {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(100%); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Add print styles
+        const printStyle = document.createElement('style');
+        printStyle.textContent = `
+            @media print {
+                body { background: white !important; }
+                .back-actions { display: none; }
+                .scheme-actions { display: none; }
+                .scheme-card { break-inside: avoid; margin-bottom: 20px; }
+                .header { color: black !important; }
+                .results-summary { 
+                    background: #f8f9fa !important; 
+                    color: black !important;
+                    border: 1px solid #dee2e6 !important;
+                }
+            }
+        `;
+        document.head.appendChild(printStyle);
+    </script>
+</body>
+</html>

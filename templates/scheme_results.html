@@ -1,0 +1,281 @@
+{% extends 'base.html' %}
+
+{% block title %}Your Matching Schemes{% endblock %}
+
+{% block extra_css %}
+<style>
+    .results-container {
+        max-width: 1200px;
+        margin: 40px auto;
+        padding: 20px;
+    }
+    
+    .results-header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 50px;
+        border-radius: 16px;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+    
+    .results-header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+    }
+    
+    .results-header p {
+        font-size: 1.1rem;
+        opacity: 0.95;
+    }
+    
+    .scheme-card {
+        background: white;
+        border-radius: 12px;
+        padding: 30px;
+        margin-bottom: 30px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        border-left: 5px solid #667eea;
+        transition: transform 0.3s ease;
+    }
+    
+    .scheme-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+    
+    .scheme-header {
+        display: flex;
+        justify-content: between;
+        align-items: flex-start;
+        margin-bottom: 20px;
+    }
+    
+    .scheme-title {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #333;
+        margin-bottom: 10px;
+        flex-grow: 1;
+    }
+    
+    .match-score {
+        background: linear-gradient(135deg, #4CAF50, #45a049);
+        color: white;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        min-width: 80px;
+        text-align: center;
+    }
+    
+    .match-reasons {
+        margin-top: 15px;
+    }
+    
+    .match-reasons h5 {
+        color: #555;
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+    }
+    
+    .reason-tag {
+        display: inline-block;
+        background: #e8f5e8;
+        color: #2d6e2d;
+        padding: 6px 12px;
+        border-radius: 15px;
+        font-size: 0.85rem;
+        margin: 3px 5px 3px 0;
+        border: 1px solid #c8e6c8;
+    }
+    
+    .no-schemes {
+        text-align: center;
+        padding: 60px 20px;
+        background: white;
+        border-radius: 12px;
+        margin-top: 40px;
+    }
+    
+    .no-schemes i {
+        font-size: 4rem;
+        color: #ccc;
+        margin-bottom: 20px;
+    }
+    
+    .no-schemes h3 {
+        color: #666;
+        margin-bottom: 15px;
+    }
+    
+    .no-schemes p {
+        color: #999;
+        font-size: 1.1rem;
+    }
+    
+    .action-buttons {
+        text-align: center;
+        margin-top: 40px;
+    }
+    
+    .btn {
+        padding: 12px 30px;
+        border-radius: 8px;
+        font-weight: 600;
+        text-decoration: none;
+        display: inline-block;
+        margin: 10px;
+        transition: all 0.3s ease;
+    }
+    
+    .btn-primary {
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: white;
+        border: none;
+    }
+    
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+    }
+    
+    .btn-secondary {
+        background: #f8f9fa;
+        color: #666;
+        border: 2px solid #e9ecef;
+    }
+    
+    .btn-secondary:hover {
+        background: #e9ecef;
+        transform: translateY(-2px);
+    }
+    
+    .summary-stats {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+    
+    .stat-item {
+        background: white;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+    
+    .stat-number {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #667eea;
+        margin-bottom: 5px;
+    }
+    
+    .stat-label {
+        color: #666;
+        font-size: 0.95rem;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="results-container">
+    <!-- Header -->
+    <div class="results-header">
+        <h1>🎯 Your 100% Eligible Schemes</h1>
+        <p>Government schemes where you meet ALL eligibility criteria</p>
+    </div>
+
+    {% if matching_schemes %}
+        <!-- Summary Statistics -->
+        <div class="summary-stats">
+            <div class="stat-item">
+                <div class="stat-number">{{ matching_schemes|length }}</div>
+                <div class="stat-label">Total Matches</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">{{ matching_schemes[0].score|round(0) }}%</div>
+                <div class="stat-label">Best Match</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">{{ (matching_schemes|map(attribute='score')|sum / matching_schemes|length)|round(0) }}%</div>
+                <div class="stat-label">Avg Match</div>
+            </div>
+        </div>
+
+        <!-- Scheme Cards -->
+        {% for scheme in matching_schemes %}
+        <div class="scheme-card">
+            <div class="scheme-header">
+                <div class="scheme-title">
+                    {{ scheme.name }}
+                </div>
+                <div class="match-score">
+                    {{ scheme.score|round(0) }}% Match
+                </div>
+            </div>
+            
+            {% if scheme.reasons %}
+            <div class="match-reasons">
+                <h5>Why you're eligible:</h5>
+                {% for reason in scheme.reasons %}
+                <span class="reason-tag">{{ reason }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+        {% endfor %}
+
+    {% else %}
+        <!-- No Matching Schemes -->
+        <div class="no-schemes">
+            <i class="fas fa-search"></i>
+            <h3>No 100% Eligible Schemes Found</h3>
+            <p>We couldn't find schemes where you meet ALL eligibility criteria.<br>
+            This could mean you need to provide more information or explore schemes with partial matches.</p>
+            <div style="margin-top: 20px;">
+                <a href="/questionnaire/{{ questionnaire_id }}" class="btn btn-primary">
+                    <i class="fas fa-edit"></i>
+                    Complete More Sections
+                </a>
+            </div>
+        </div>
+    {% endif %}
+
+    <!-- Action Buttons -->
+    <div class="action-buttons">
+        <a href="/questionnaire/{{ questionnaire_id }}" class="btn btn-secondary">
+            <i class="fas fa-edit"></i>
+            Update Responses
+        </a>
+        <a href="{{ url_for('start_questionnaire') }}" class="btn btn-secondary">
+            <i class="fas fa-redo"></i>
+            Start Over
+        </a>
+        <a href="{{ url_for('home') }}" class="btn btn-primary">
+            <i class="fas fa-home"></i>
+            Go Home
+        </a>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Animate scheme cards on load
+    const schemeCards = document.querySelectorAll('.scheme-card');
+    schemeCards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        setTimeout(() => {
+            card.style.transition = 'all 0.5s ease';
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+        }, index * 100);
+    });
+});
+</script>
+{% endblock %}

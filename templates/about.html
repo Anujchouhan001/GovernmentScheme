@@ -1,0 +1,204 @@
+{% extends 'base.html' %}
+
+{% block title %}About{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <!-- About Section -->
+            <div class="text-center mb-5">
+                <h1><i class="fas fa-info-circle text-primary me-3"></i>About Scheme Finder</h1>
+                <p class="lead text-muted">A College Project for Social Good</p>
+            </div>
+
+            <!-- Project Info -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h4 class="card-title"><i class="fas fa-project-diagram text-primary me-2"></i>Project Overview</h4>
+                    <p>
+                        <strong>Scheme Finder</strong> is an intelligent web application designed to help citizens 
+                        of Bihar discover government schemes they are eligible for. Many people are unaware of 
+                        the welfare schemes available to them due to scattered information and complex eligibility criteria.
+                    </p>
+                    <p class="mb-0">
+                        This project bridges that gap by providing a simple questionnaire-based approach that 
+                        matches users with relevant schemes based on their profile.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Features -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h4 class="card-title"><i class="fas fa-star text-warning me-2"></i>Key Features</h4>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>106 Government Schemes</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Smart Matching Algorithm</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Score-based Ranking</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Detailed Scheme Info</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Direct Application Links</li>
+                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Mobile Responsive</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- How It Works -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h4 class="card-title"><i class="fas fa-cogs text-info me-2"></i>How the Matching Works</h4>
+                    <p>Our algorithm uses multiple matching criteria:</p>
+                    
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Criteria</th>
+                                    <th>Match Type</th>
+                                    <th>Points</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Age</td>
+                                    <td>Range Match (e.g., 18-50)</td>
+                                    <td>20 pts</td>
+                                </tr>
+                                <tr>
+                                    <td>Gender</td>
+                                    <td>Exact Match</td>
+                                    <td>15 pts</td>
+                                </tr>
+                                <tr>
+                                    <td>Category</td>
+                                    <td>Exact Match (SC/ST/BC/EBC)</td>
+                                    <td>15 pts</td>
+                                </tr>
+                                <tr>
+                                    <td>Occupation</td>
+                                    <td>Keyword Match</td>
+                                    <td>15 pts</td>
+                                </tr>
+                                <tr>
+                                    <td>Income</td>
+                                    <td>Range Match (Below limit)</td>
+                                    <td>10 pts</td>
+                                </tr>
+                                <tr>
+                                    <td>BPL Status</td>
+                                    <td>Exact Match</td>
+                                    <td>10 pts</td>
+                                </tr>
+                                <tr>
+                                    <td>Disability</td>
+                                    <td>Exact Match</td>
+                                    <td>10 pts</td>
+                                </tr>
+                                <tr>
+                                    <td>Keywords</td>
+                                    <td>Text Search</td>
+                                    <td>5 pts</td>
+                                </tr>
+                            </tbody>
+                            <tfoot class="table-primary">
+                                <tr>
+                                    <td colspan="2"><strong>Total Maximum Score</strong></td>
+                                    <td><strong>100 pts</strong></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technologies -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h4 class="card-title"><i class="fas fa-code text-danger me-2"></i>Technologies Used</h4>
+                    <div class="row text-center">
+                        <div class="col-4 col-md-2 mb-3">
+                            <i class="fab fa-python fa-3x text-primary"></i>
+                            <p class="small mt-2">Python</p>
+                        </div>
+                        <div class="col-4 col-md-2 mb-3">
+                            <i class="fas fa-flask fa-3x text-dark"></i>
+                            <p class="small mt-2">Flask</p>
+                        </div>
+                        <div class="col-4 col-md-2 mb-3">
+                            <i class="fab fa-bootstrap fa-3x text-purple" style="color: #7952b3;"></i>
+                            <p class="small mt-2">Bootstrap</p>
+                        </div>
+                        <div class="col-4 col-md-2 mb-3">
+                            <i class="fab fa-html5 fa-3x text-orange" style="color: #e34c26;"></i>
+                            <p class="small mt-2">HTML5</p>
+                        </div>
+                        <div class="col-4 col-md-2 mb-3">
+                            <i class="fab fa-css3-alt fa-3x" style="color: #264de4;"></i>
+                            <p class="small mt-2">CSS3</p>
+                        </div>
+                        <div class="col-4 col-md-2 mb-3">
+                            <i class="fab fa-js fa-3x text-warning"></i>
+                            <p class="small mt-2">JavaScript</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Details -->
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h4 class="card-title"><i class="fas fa-university text-secondary me-2"></i>Project Details</h4>
+                    <table class="table table-borderless">
+                        <tr>
+                            <td><strong>Project Name:</strong></td>
+                            <td>Scheme Finder - Government Scheme Recommendation System</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Type:</strong></td>
+                            <td>College Project</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Year:</strong></td>
+                            <td>2026</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Data Source:</strong></td>
+                            <td><a href="https://www.myscheme.gov.in" target="_blank">MyScheme.gov.in</a></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Total Schemes:</strong></td>
+                            <td>106 (Bihar Government Schemes)</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Disclaimer -->
+            <div class="alert alert-warning">
+                <h5><i class="fas fa-exclamation-triangle me-2"></i>Disclaimer</h5>
+                <p class="mb-0">
+                    This is an educational project created for college purposes. While we strive for accuracy, 
+                    please verify eligibility and application details on official government websites. 
+                    Scheme information may change, and official sources should be consulted for the most 
+                    up-to-date information.
+                </p>
+            </div>
+
+            <!-- CTA -->
+            <div class="text-center mt-5">
+                <a href="/find-schemes" class="btn btn-primary btn-lg">
+                    <i class="fas fa-search me-2"></i>Find Your Eligible Schemes
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

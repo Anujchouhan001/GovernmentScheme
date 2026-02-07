@@ -1,0 +1,409 @@
+{% extends 'base.html' %}
+
+{% block title %}Eligible Schemes - Results{% endblock %}
+
+{% block extra_css %}
+<style>
+    .results-header {
+        background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+        color: white;
+        padding: 40px 0;
+        margin-bottom: 30px;
+        border-radius: 0 0 20px 20px;
+    }
+    
+    .stats-card {
+        background: white;
+        border-radius: 15px;
+        padding: 25px;
+        text-align: center;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    
+    .stats-number {
+        font-size: 3rem;
+        font-weight: 700;
+        color: #28a745;
+    }
+    
+    .scheme-card {
+        background: white;
+        border-radius: 12px;
+        padding: 25px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        border-left: 5px solid #28a745;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+    
+    .scheme-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+    
+    .scheme-card.partial-match {
+        border-left-color: #ffc107;
+    }
+    
+    .match-badge {
+        display: inline-block;
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 600;
+    }
+    
+    .match-badge.full {
+        background: #d4edda;
+        color: #155724;
+    }
+    
+    .match-badge.partial {
+        background: #fff3cd;
+        color: #856404;
+    }
+    
+    .criteria-list {
+        margin: 15px 0;
+        padding: 15px;
+        background: #f8f9fa;
+        border-radius: 8px;
+    }
+    
+    .user-summary {
+        background: linear-gradient(135deg, #f8f9ff 0%, #e3f2fd 100%);
+        border-radius: 16px;
+        padding: 30px;
+        margin-bottom: 30px;
+        box-shadow: 0 4px 20px rgba(0,123,255,0.1);
+        border: 1px solid #e3f2fd;
+    }
+    
+    .user-summary h5 {
+        color: #0056b3;
+        font-weight: 600;
+        margin-bottom: 25px;
+    }
+    
+    .user-summary-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 15px;
+        margin-top: 20px;
+    }
+    
+    .user-summary-item {
+        display: flex;
+        align-items: center;
+        padding: 12px 18px;
+        background: white;
+        border-radius: 12px;
+        font-size: 14px;
+        font-weight: 500;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        border-left: 4px solid #007bff;
+        transition: all 0.3s ease;
+    }
+    
+    .user-summary-item:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    
+    .user-summary-item i {
+        width: 20px;
+        text-align: center;
+        color: #007bff;
+        margin-right: 10px;
+    }
+    
+    .user-summary-item.highlight {
+        background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+        border-left-color: #ffc107;
+    }
+    
+    .user-summary-item.highlight i {
+        color: #856404;
+    }
+    
+    .user-profile-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    
+    .user-avatar {
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 20px;
+        margin-right: 15px;
+        box-shadow: 0 4px 15px rgba(0,123,255,0.3);
+    }
+    
+    .no-results {
+        text-align: center;
+        padding: 60px 20px;
+        background: white;
+        border-radius: 12px;
+    }
+    
+    .no-results i {
+        font-size: 5rem;
+        color: #ddd;
+        margin-bottom: 20px;
+    }
+    
+    .section-divider {
+        margin: 30px 0 20px 0;
+        border-bottom: 2px solid #e9ecef;
+        padding-bottom: 10px;
+    }
+    
+    .eligibility-details {
+        font-size: 13px;
+        color: #666;
+    }
+    
+    .eligibility-details .matched {
+        color: #28a745;
+    }
+    
+    .eligibility-details .failed {
+        color: #dc3545;
+    }
+    
+    .progress {
+        height: 8px;
+        border-radius: 4px;
+    }
+    
+    .alert.alert-success {
+        background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+        border: none;
+        border-left: 4px solid #28a745;
+        border-radius: 12px;
+    }
+    
+    .no-results i {
+        font-size: 4rem;
+        color: #6c757d;
+        margin-bottom: 20px;
+    }
+    
+    .scheme-card .border-top {
+        border-color: #e9ecef !important;
+    }
+    
+    .btn-close {
+        filter: brightness(0) saturate(100%) invert(38%) sepia(15%) saturate(341%) hue-rotate(75deg) brightness(96%) contrast(93%);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="results-header">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-8">
+                <h1 class="mb-3"><i class="fas fa-clipboard-check me-3"></i>Your Scheme Eligibility Results</h1>
+                <p class="lead mb-0">We found schemes where you meet <strong>all eligibility criteria (100% match)</strong></p>
+            </div>
+            <div class="col-md-4">
+                <div class="stats-card">
+                    <div class="stats-number">{{ total_found }}</div>
+                    <div class="text-muted">Fully Eligible</div>
+                    <small class="text-muted">100% match schemes</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container pb-5">
+    <!-- User Summary -->
+    <div class="user-summary">
+        <div class="user-profile-header">
+            <div class="user-avatar">
+                <i class="fas fa-user"></i>
+            </div>
+            <div>
+                <h5 class="mb-1">Your Profile Summary</h5>
+                <small class="text-muted">Information used for scheme matching</small>
+            </div>
+        </div>
+        
+        <div class="user-summary-grid">
+            {% if user.state %}
+            <div class="user-summary-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>{{ user.state }}</span>
+            </div>
+            {% endif %}
+            
+            {% if user.age %}
+            <div class="user-summary-item">
+                <i class="fas fa-birthday-cake"></i>
+                <span>{{ user.age }} years old</span>
+            </div>
+            {% endif %}
+            
+            {% if user.gender %}
+            <div class="user-summary-item">
+                <i class="fas fa-venus-mars"></i>
+                <span>{{ user.gender }}</span>
+            </div>
+            {% endif %}
+            
+            {% if user.category %}
+            <div class="user-summary-item">
+                <i class="fas fa-users"></i>
+                <span>{{ user.category }} Category</span>
+            </div>
+            {% endif %}
+            
+            {% if user.occupation %}
+            <div class="user-summary-item">
+                <i class="fas fa-briefcase"></i>
+                <span>{{ user.occupation }}</span>
+            </div>
+            {% endif %}
+            
+            {% if user.annual_income and user.annual_income != 'None' %}
+            <div class="user-summary-item">
+                <i class="fas fa-rupee-sign"></i>
+                <span>₹{{ user.annual_income|int }}/year</span>
+            </div>
+            {% endif %}
+            
+            {% if user.is_bpl %}
+            <div class="user-summary-item highlight">
+                <i class="fas fa-certificate"></i>
+                <span>Below Poverty Line (BPL)</span>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    
+    {% if schemes %}
+    <!-- Results List -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h4><i class="fas fa-check-circle me-2 text-success"></i>Fully Eligible Schemes ({{ total_found }})</h4>
+        <a href="/find-schemes" class="btn btn-outline-primary">
+            <i class="fas fa-redo me-1"></i>Search Again
+        </a>
+    </div>
+    
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <i class="fas fa-thumbs-up me-2"></i>
+        <strong>Great news!</strong> You are 100% eligible for the following {{ total_found }} scheme{{ 's' if total_found != 1 else '' }}. You meet all the required criteria for each of these schemes.
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+    
+    {% for scheme in schemes %}
+    <div class="scheme-card">
+        <div class="d-flex justify-content-between align-items-start mb-3">
+            <div>
+                <h5 class="mb-1">{{ scheme.name }}</h5>
+                <span class="match-badge full">
+                    <i class="fas fa-check-circle me-1"></i>100% Eligible
+                </span>
+            </div>
+            <a href="/scheme/{{ scheme.name }}" class="btn btn-sm btn-outline-primary">
+                <i class="fas fa-info-circle me-1"></i>Details
+            </a>
+        </div>
+        
+        <div class="criteria-list">
+            <small class="text-success mb-2 d-block">
+                <i class="fas fa-check-double me-1"></i>
+                You meet all {{ scheme.matched_criteria }} eligibility criteria for this scheme
+            </small>
+            <div class="progress">
+                <div class="progress-bar bg-success" role="progressbar" style="width: 100%"></div>
+            </div>
+        </div>
+        
+        {% if scheme.eligibility_criteria %}
+        <div class="eligibility-details mt-3">
+            <strong class="text-success">✓ All Eligibility Requirements Met:</strong>
+            <ul class="mb-0 mt-2">
+                {% for criteria in scheme.eligibility_criteria[:5] %}
+                <li class="matched"><i class="fas fa-check me-1"></i>{{ criteria.eligibility_text }}</li>
+                {% endfor %}
+                {% if scheme.eligibility_criteria|length > 5 %}
+                <li class="text-muted"><i class="fas fa-plus-circle me-1"></i>...and {{ scheme.eligibility_criteria|length - 5 }} more criteria satisfied</li>
+                {% endif %}
+            </ul>
+        </div>
+        {% endif %}
+        
+        <div class="mt-3 pt-3 border-top">
+            <div class="row">
+                <div class="col-md-6">
+                    <small class="text-muted">
+                        <i class="fas fa-lightbulb me-1"></i>
+                        <strong>Next Step:</strong> Contact your local government office or visit the official portal to apply.
+                    </small>
+                </div>
+                <div class="col-md-6 text-end">
+                    <small class="text-muted">
+                        <i class="fas fa-clock me-1"></i>
+                        Apply as soon as possible
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    
+    {% else %}
+    <!-- No Results -->
+    <div class="no-results">
+        <i class="fas fa-search-minus"></i>
+        <h4>No 100% Matching Schemes Found</h4>
+        <p class="text-muted">
+            Based on your responses, we couldn't find schemes where you meet <strong>all</strong> eligibility criteria.<br>
+            <small>Note: We only show schemes where you are 100% eligible to ensure accurate recommendations.</small>
+        </p>
+        <div class="alert alert-info mt-4">
+            <i class="fas fa-lightbulb me-2"></i>
+            <strong>Suggestions:</strong>
+            <ul class="mb-0 mt-2 text-start">
+                <li>Try updating your profile information</li>
+                <li>Check if you have any missing documents or certifications</li>
+                <li>Browse all schemes to see which ones you might qualify for in the future</li>
+            </ul>
+        </div>
+        <div class="mt-4">
+            <a href="/find-schemes" class="btn btn-primary me-2">
+                <i class="fas fa-redo me-1"></i>Update Profile & Try Again
+            </a>
+            <a href="/all-schemes" class="btn btn-outline-secondary">
+                <i class="fas fa-list me-1"></i>Browse All Schemes
+            </a>
+        </div>
+    </div>
+    {% endif %}
+    
+    <!-- Additional Actions -->
+    <div class="text-center mt-5">
+        <div class="card bg-light border-0">
+            <div class="card-body py-4">
+                <h5>Need Help?</h5>
+                <p class="text-muted mb-3">
+                    Contact your local government office or visit the official Bihar government portal for more information.
+                </p>
+                <a href="https://state.bihar.gov.in/" target="_blank" class="btn btn-outline-primary">
+                    <i class="fas fa-external-link-alt me-1"></i>Bihar Government Portal
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,2632 @@
+[
+  {
+    "name": "Aaloo Ke Kufri Chipsona-1 Prabhed Ke Kshetra Vistaar Yojana",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Land area between 0.25 acres and 5 acres",
+        "question": "How many acres of land do you own?",
+        "data_field": "land_owned_acres"
+      },
+      {
+        "eligibility_text": "Resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Registered on the Direct Benefit Transfer (DBT) portal",
+        "question": "Are you registered on the Direct Benefit Transfer (DBT) portal?",
+        "data_field": "dbt_registered"
+      },
+      {
+        "eligibility_text": "Farmer",
+        "question": "Are you a farmer?",
+        "data_field": "occupation_farmer"
+      }
+    ]
+  },
+  {
+    "name": "Alpsankhyak Muslim Parityaqta/Talaqshuda Mahila Sahayata Yojana",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Muslim woman from a minority community",
+        "question": "Muslim woman from a minority community?",
+        "data_field": "Belong to_minority community"
+      },
+      {
+        "eligibility_text": "Age between 18 and 50 years",
+        "question": "What is your age?",
+        "data_field": "Age"
+      },
+      {
+        "eligibility_text": "Resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Divorced, abandoned (2+ years), or husband mentally handicapped",
+        "question": "Divorced, abandoned (2+ years), or husband mentally handicapped?",
+        "data_field": "marital_status_Divorced, abandoned (2+ years), or husband mentally handicapped"
+      },
+      {
+        "eligibility_text": "Annual family income less than ₹4,00,000",
+        "question": "Annual family income less than ₹4,00,000?",
+        "data_field": "Family Income Annual"
+      },
+      {
+        "eligibility_text": "Must not have remarried",
+        "question": "Must not have remarried?",
+        "data_field": "marital_status_remarried"
+      },
+      {
+        "eligibility_text": "Widows are not eligible",
+        "question": "Are you a widow?",
+        "data_field": "marital_status_widow"
+      }
+    ]
+  },
+  {
+    "name": "Annual Medical Assistance Scheme (BBOCWWB)",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Construction worker registered with BBOCWWB",
+        "question": "Are you engaged in building or construction work?",
+        "data_field": "occupation_construction_worker"
+      },
+      {
+        "eligibility_text": "Minimum one year of membership",
+        "question": "Minimum one year of membership?",
+        "data_field": "occupation_construction_worker - membership period"
+      },
+      {
+        "eligibility_text": "Active membership at time of application",
+        "question": "Active membership at time of application?",
+        "data_field": "occupation_construction_worker - Active menbership or not"
+      }
+    ]
+  },
+  {
+    "name": "Antarjatiye Vivah Protsahan Anudan Yojana",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Bride and groom must be residents of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Marriage must be inter-caste",
+        "question": "Marriage must be inter-caste?",
+        "data_field": "marital_status_intercaste"
+      },
+      {
+        "eligibility_text": "Bride age 18+, Groom age 21+",
+        "question": "What is your age?",
+        "data_field": "Age"
+      },
+      {
+        "eligibility_text": "Must belong to poor families",
+        "question": "Must belong to poor families?",
+        "data_field": "Belong to_Below Poverty Line (BPL) family"
+      }
+    ]
+  },
+  {
+    "name": "Anya Pichhda Varg Kalyan Chhatravaas",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Belong to Backward Class (BC) or Extremely Backward Class (EBC)",
+        "question": "Belong to Backward Class (BC) or Extremely Backward Class (EBC)?",
+        "data_field": "Belong to_Backward Class (BC) or Extremely Backward Class (EBC)"
+      },
+      {
+        "eligibility_text": "Aged between 11 and 40 years",
+        "question": "What is your age?",
+        "data_field": "Age"
+      }
+    ]
+  },
+  {
+    "name": "BC & EBC Girls Residential +2 High School",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Age limits: 11-13 (Class 6), 12-14 (Class 7), 13-15 (Class 8), 14-16 (Class 9)",
+        "question": "What is your age?",
+        "data_field": "Age"
+      },
+      {
+        "eligibility_text": "Girl student resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Belong to Backward Class (BC) or Extremely Backward Class (EBC)",
+        "question": "Belong to Backward Class (BC) or Extremely Backward Class (EBC)?",
+        "data_field": "Belong to_Backward Class (BC) or Extremely Backward Class (EBC)"
+      },
+      {
+        "eligibility_text": "Class 6 to Class 12 student",
+        "question": "Class 6 to Class 12 student?",
+        "data_field": "Educational qualification: (Class 6 to Class 12 student)"
+      },
+      {
+        "eligibility_text": "Annual family income not exceeding ₹3,00,000",
+        "question": "Annual family income not exceeding ₹3,00,000?",
+        "data_field": "Family Income Annual"
+      }
+    ]
+  },
+  {
+    "name": "Beej Masaale Ki Yojana",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Must be a farmer with land between 0.25 acres and 10 acres",
+        "question": "Must be a farmer with land between 0.25 acres and 10 acres?",
+        "data_field": "occupation farmer -land owned acres"
+      },
+      {
+        "eligibility_text": "Resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Registered on the Direct Benefit Transfer (DBT) portal",
+        "question": "Are you registered on the Direct Benefit Transfer (DBT) portal?",
+        "data_field": "dbt_registered"
+      }
+    ]
+  },
+  {
+    "name": "Bhraman - Darshan Yojana",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Must be a resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Must work in private, leased, or government ponds/watersheds",
+        "question": "Must work in private, leased, or government ponds/watersheds?",
+        "data_field": "Other - Pond"
+      },
+      {
+        "eligibility_text": "Must be an active member of Block Level Fishermen Cooperation Committees",
+        "question": "Are you an active member of the Block Level Fishermen Cooperative?",
+        "data_field": "Other -fisher_cooperative_member"
+      },
+      {
+        "eligibility_text": "Must have undergone training under departmental schemes",
+        "question": "Must have undergone training under departmental schemes?",
+        "data_field": "Other - training_completed (undergone under departmental schemes)"
+      },
+      {
+        "eligibility_text": "Benefit can be availed only once",
+        "question": "Have you already availed this benefit earlier?",
+        "data_field": "Other"
+      }
+    ]
+  },
+  {
+    "name": "Bihar Rajya Fasal Sahayata Yojna",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Farmer cultivating own land or others' land in Bihar",
+        "question": "Farmer cultivating own land or others' land in Bihar?",
+        "data_field": "occupation farmer -cultivating own land or others' land in Bihar"
+      },
+      {
+        "eligibility_text": "Crop damage due to natural calamities in notified areas",
+        "question": "Crop damage due to natural calamities in notified areas?",
+        "data_field": "occupation farmer -Crop damage"
+      }
+    ]
+  },
+  {
+    "name": "Bihar Shatabdi AIDS Pirit Kalyan Yojana",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Confirmed AIDS patient",
+        "question": "Confirmed AIDS patient?",
+        "data_field": "medical diseases - (aids)"
+      },
+      {
+        "eligibility_text": "Aged 18 years or older",
+        "question": "What is your age?",
+        "data_field": "Age"
+      }
+    ]
+  },
+  {
+    "name": "Bihar Shatabdi Asangathit Karyakshetra Kamagaar Evan Shilpakar Samajik Suraksha Yojana: Accidental Death",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Worker or craftsman in unorganized sector",
+        "question": "Worker or craftsman in unorganized sector?",
+        "data_field": "occupation_Worker or craftsman in unorganized sector"
+      },
+      {
+        "eligibility_text": "Resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Accidental death (excluding suicide or intoxication)",
+        "question": "Accidental death (excluding suicide or intoxication)?",
+        "data_field": "Death (Cause - Natural or Suicide or accident or intoxication or criminal incident)"
+      },
+      {
+        "eligibility_text": "Age between 18 and 65 years",
+        "question": "What is your age?",
+        "data_field": "Age"
+      }
+    ]
+  },
+  {
+    "name": "Bihar Shatabdi Asangathit Karyakshetra Kamagaar Evan Shilpakar Samajik Suraksha Yojana: Accidental Injuries",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Worker or craftsman in the unorganized sector",
+        "question": "Worker or craftsman in the unorganized sector?",
+        "data_field": "occupation_Worker or craftsman in unorganized sector"
+      },
+      {
+        "eligibility_text": "Suffered accidental injury",
+        "question": "Suffered accidental injury?",
+        "data_field": "occupation_Worker or craftsman in unorganized sector - (Suffer accidental injury)"
+      },
+      {
+        "eligibility_text": "Aged between 18 and 65 years",
+        "question": "What is your age?",
+        "data_field": "Age"
+      }
+    ]
+  },
+  {
+    "name": "Bihar Shatabdi Asangathit Karyakshetra Kamagaar Evan Shilpakar Samajik Suraksha Yojana: Medical Assistance for Incurable Diseases",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Worker or craftsman in the unorganized sector",
+        "question": "Worker or craftsman in the unorganized sector?",
+        "data_field": "occupation_Worker or craftsman in unorganized sector"
+      },
+      {
+        "eligibility_text": "Resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Suffering from incurable diseases (Cancer, Heart disease, AIDS, etc.)",
+        "question": "Suffering from incurable diseases (Cancer, Heart disease, AIDS, etc.)?",
+        "data_field": "medical diseases - (Cancer, Heart disease, AIDS, etc.)"
+      },
+      {
+        "eligibility_text": "Age between 18 and 65 years",
+        "question": "What is your age?",
+        "data_field": "Age"
+      }
+    ]
+  },
+  {
+    "name": "Bihar Shatabdi Asangathit Karyakshetra Kamagaar Evan Shilpakar Samajik Suraksha Yojana: Natural Death",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Worker or craftsman in the unorganized sector",
+        "question": "Worker or craftsman in the unorganized sector?",
+        "data_field": "occupation_Worker or craftsman in unorganized sector"
+      },
+      {
+        "eligibility_text": "Death must be natural (not accidental)",
+        "question": "Death must be natural (not accidental)?",
+        "data_field": "Death (Cause - Natural or Suicide or accident or intoxication or criminal incident)"
+      },
+      {
+        "eligibility_text": "Aged between 18 and 65 years",
+        "question": "What is your age?",
+        "data_field": "Age"
+      }
+    ]
+  },
+  {
+    "name": "Bihar Shatabdi Asangathit Karyakshetra Kamagaar Evan Shilpakar Samajik Suraksha Yojana: Permanent Partial Disability",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Worker or craftsman in the unorganized sector",
+        "question": "Worker or craftsman in the unorganized sector?",
+        "data_field": "occupation_Worker or craftsman in unorganized sector"
+      },
+      {
+        "eligibility_text": "Resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Suffering from permanent partial disability (one eye or one leg useless)",
+        "question": "Suffering from permanent partial disability (one eye or one leg useless)?",
+        "data_field": "Disabled person (permanent partial disability (one eye or one leg useless))"
+      },
+      {
+        "eligibility_text": "Age between 18 and 65 years",
+        "question": "What is your age?",
+        "data_field": "Age"
+      }
+    ]
+  },
+  {
+    "name": "Bihar Shatabdi Asangathit Karyakshetra Kamagaar Evan Shilpakar Samajik Suraksha Yojana: Total Permanent Disability",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Worker or craftsman in the unorganized sector",
+        "question": "Worker or craftsman in the unorganized sector?",
+        "data_field": "occupation_Worker or craftsman in unorganized sector"
+      },
+      {
+        "eligibility_text": "Suffered total permanent disability due to accident",
+        "question": "Suffered total permanent disability due to accident?",
+        "data_field": "occupation_Worker or craftsman - (Suffer permanent disability)"
+      },
+      {
+        "eligibility_text": "Aged between 18 and 65 years",
+        "question": "What is your age?",
+        "data_field": "Age"
+      }
+    ]
+  },
+  {
+    "name": "Bihar Shatabdi Leper Welfare Scheme",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Leprosy patient with Visible Deformities Grade-II",
+        "question": "Leprosy patient with Visible Deformities Grade-II?",
+        "data_field": "medical diseases - (Leprosy patient with Visible Deformities Grade-II)"
+      }
+    ]
+  },
+  {
+    "name": "Bihar Startup Policy",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Incorporated/registered in Bihar with an office in Bihar",
+        "question": "Incorporated/registered in Bihar with an office in Bihar?",
+        "data_field": "occupation - Business Startup - registered in bihar"
+      },
+      {
+        "eligibility_text": "Annual turnover not exceeding ₹100 crore",
+        "question": "Annual turnover not exceeding ₹100 crore?",
+        "data_field": "occupation - Business Startup - tournover"
+      },
+      {
+        "eligibility_text": "Working towards innovation or scalable business model",
+        "question": "Working towards innovation or scalable business model?",
+        "data_field": "occupation - Business Startup - Working towards innovation or scalable business model"
+      },
+      {
+        "eligibility_text": "Not formed by splitting up an existing business",
+        "question": "Not formed by splitting up an existing business?",
+        "data_field": "occupation - Business Startup - Not formed by splitting up an existing business"
+      },
+      {
+        "eligibility_text": "Entity age up to 10 years from incorporation",
+        "question": "Entity age up to 10 years from incorporation?",
+        "data_field": "occupation - Business Startup - Age upto 10 years from incorporation"
+      }
+    ]
+  },
+  {
+    "name": "Bihar State Alpsankhyak Awasiya Vidyalaya Yojana",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Belong to a minority community",
+        "question": "Belong to a minority community?",
+        "data_field": "Belong to_minority community"
+      },
+      {
+        "eligibility_text": "Age max 16 for Class 9 and 18 for Class 11",
+        "question": "What is your age?",
+        "data_field": "Age"
+      },
+      {
+        "eligibility_text": "Resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Annual family income not exceeding ₹6,00,000",
+        "question": "Annual family income not exceeding ₹6,00,000?",
+        "data_field": "Family Income Annual"
+      }
+    ]
+  },
+  {
+    "name": "Bihar State Journalist Insurance Scheme",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Journalist or media representative",
+        "question": "Journalist or media representative?",
+        "data_field": "occupation - Journalist or media representative"
+      },
+      {
+        "eligibility_text": "Age between 21 and 70 years",
+        "question": "What is your age?",
+        "data_field": "Age"
+      },
+      {
+        "eligibility_text": "Minimum 5 years of work experience",
+        "question": "Minimum 5 years of work experience?",
+        "data_field": "occupation - Journalist or media representative -Work experience (Years)"
+      },
+      {
+        "eligibility_text": "Residing and working in Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Educational qualification: Matriculation or equivalent",
+        "question": "Educational qualification: Matriculation or equivalent?",
+        "data_field": "Educational qualification: (12th, ITI, or Polytechnic Diploma, other)"
+      }
+    ]
+  },
+  {
+    "name": "Bihar State Madarsa Strengthening Scheme",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Madarsa located in Bihar and recognized by Bihar State Madarsa Board",
+        "question": "Madarsa located in Bihar and recognized by Bihar State Madarsa Board?",
+        "data_field": "other"
+      },
+      {
+        "eligibility_text": "No disciplinary action in the past three years",
+        "question": "No disciplinary action in the past three years?",
+        "data_field": "other"
+      },
+      {
+        "eligibility_text": "Enrollment of more than 70 students",
+        "question": "Enrollment of more than 70 students?",
+        "data_field": "Other - Enrollment of more than 70 students"
+      },
+      {
+        "eligibility_text": "Recognized for at least two years",
+        "question": "Recognized for at least two years?",
+        "data_field": "other"
+      },
+      {
+        "eligibility_text": "Possess legally owned, dispute-free land",
+        "question": "Possess legally owned, dispute-free land?",
+        "data_field": "other"
+      }
+    ]
+  },
+  {
+    "name": "Bihar Student Credit Card Scheme",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Age not more than 25 years",
+        "question": "What is your age?",
+        "data_field": "Age"
+      },
+      {
+        "eligibility_text": "Resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Passed class 12th",
+        "question": "Passed class 12th?",
+        "data_field": "Educational qualification: (12th)"
+      },
+      {
+        "eligibility_text": "Admission to an authorized institute for recognized courses",
+        "question": "Admission to an authorized institute for recognized courses?",
+        "data_field": "Occupation - Student (admission to an authorized institute)"
+      }
+    ]
+  },
+  {
+    "name": "Cash Prizes Scheme (BBOCWWB)",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Registered construction worker with BBOCWWB",
+        "question": "Are you engaged in building or construction work?",
+        "data_field": "occupation_construction_worker"
+      },
+      {
+        "eligibility_text": "Active membership for at least one year",
+        "question": "Active membership for at least one year?",
+        "data_field": "occupation_construction_worker - membership period"
+      },
+      {
+        "eligibility_text": "Maximum of two children eligible",
+        "question": "Maximum of two children eligible?",
+        "data_field": "Children (girl or boy)"
+      },
+      {
+        "eligibility_text": "Child passed 10th or 12th from a Bihar board with 60% or above",
+        "question": "Child passed 10th or 12th from a Bihar board with 60% or above?",
+        "data_field": "Educational qualification: (Child passed 10th or 12th from a Bihar board with 60% or above)"
+      }
+    ]
+  },
+  {
+    "name": "Chai Vikas Yojana",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Registered on the Direct Benefit Transfer (DBT) portal",
+        "question": "Are you registered on the Direct Benefit Transfer (DBT) portal?",
+        "data_field": "dbt_registered"
+      },
+      {
+        "eligibility_text": "Farmer in Kishanganj, Araria, Supaul, Purnia, or Katihar",
+        "question": "Are you a farmer?",
+        "data_field": "occupation_farmer"
+      },
+      {
+        "eligibility_text": "Minimum land area of 2 acres",
+        "question": "How many acres of land do you own?",
+        "data_field": "land_owned_acres"
+      }
+    ]
+  },
+  {
+    "name": "Chief Minister BC & EBC Chhatravas Anudan Yojana",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Age between 11 and 40 years",
+        "question": "What is your age?",
+        "data_field": "Age"
+      },
+      {
+        "eligibility_text": "Annual family income less than ₹3,00,000",
+        "question": "Annual family income less than ₹3,00,000?",
+        "data_field": "Family Income Annual"
+      },
+      {
+        "eligibility_text": "Residing in a government hostel",
+        "question": "Residing in a government hostel?",
+        "data_field": "Reside in-  government hostel"
+      },
+      {
+        "eligibility_text": "Belong to BC or EBC category",
+        "question": "Belong to BC or EBC category?",
+        "data_field": "Belong to_Backward Class (BC) or Extremely Backward Class (EBC)"
+      }
+    ]
+  },
+  {
+    "name": "Chief Minister Divyangjan Empowerment Scheme (Sambal)",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Permanent resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Disabled person (Divyangjan)",
+        "question": "Disabled person (Divyangjan)?",
+        "data_field": "Disabled person (Divyangjan)"
+      },
+      {
+        "eligibility_text": "Age 18-60 for loans",
+        "question": "What is your age?",
+        "data_field": "Age"
+      },
+      {
+        "eligibility_text": "Age 6-18 for special schools",
+        "question": "What is your age?",
+        "data_field": "Age"
+      },
+      {
+        "eligibility_text": "Age 18+ for shelter homes",
+        "question": "What is your age?",
+        "data_field": "Age"
+      }
+    ]
+  },
+  {
+    "name": "Chief Minister EBC Civil Seva Protsahan Yojana",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Permanent resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Passed preliminary examination of UPSC, BPSC, or other specified exams",
+        "question": "Passed preliminary examination of UPSC, BPSC, or other specified exams?",
+        "data_field": "Educational qualification: (Passed preliminary examination of UPSC, BPSC, or other specified exams)"
+      },
+      {
+        "eligibility_text": "Not previously received the same incentive",
+        "question": "Not previously received the same incentive?",
+        "data_field": "other"
+      },
+      {
+        "eligibility_text": "Not employed in government/PSU",
+        "question": "Not employed in government/PSU?",
+        "data_field": "occupation_Employment - Governement/PSU or other"
+      },
+      {
+        "eligibility_text": "Belong to Extremely Backward Class (EBC)",
+        "question": "Belong to Extremely Backward Class (EBC)?",
+        "data_field": "Belong to_Backward Class (BC) or Extremely Backward Class (EBC)"
+      }
+    ]
+  },
+  {
+    "name": "Chief Minister Family Benefit Scheme",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Deceased died in accident (any age) or criminal incident (18-60 years)",
+        "question": "Deceased died in accident (any age) or criminal incident (18-60 years)?",
+        "data_field": "Death (Cause - Natural or Suicide or accident or intoxication or criminal incident)"
+      },
+      {
+        "eligibility_text": "Resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Family member or dependent of the deceased",
+        "question": "Family member or dependent of the deceased?",
+        "data_field": "Death (Dependent family member)"
+      },
+      {
+        "eligibility_text": "Deceased belonged to a poor family",
+        "question": "Deceased belonged to a poor family?",
+        "data_field": "Death (Belongs to poor family)"
+      },
+      {
+        "eligibility_text": "Death not caused by suicide",
+        "question": "Death not caused by suicide?",
+        "data_field": "Death (Cause - Natural or Suicide or accident or intoxication or criminal incident)"
+      }
+    ]
+  },
+  {
+    "name": "Chief Minister Kanya Utthan Yojana",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Girl child",
+        "question": "Girl child?",
+        "data_field": "Childern -Girl child"
+      },
+      {
+        "eligibility_text": "Birth registered",
+        "question": "Birth registered?",
+        "data_field": "Other - Birth registered"
+      },
+      {
+        "eligibility_text": "Maximum of two girl children per family",
+        "question": "Maximum of two girl children per family?",
+        "data_field": "Children (girl or boy)"
+      }
+    ]
+  },
+  {
+    "name": "Chief Minister Nari Shakti Yojana",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Permanent resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Adolescent girls and women",
+        "question": "Adolescent girls and women?",
+        "data_field": "Age - adolescent"
+      },
+      {
+        "eligibility_text": "Passed the preliminary examination of UPSC",
+        "question": "Passed the preliminary examination of UPSC?",
+        "data_field": "Educational qualification: (Passed preliminary examination of UPSC)"
+      }
+    ]
+  },
+  {
+    "name": "Cluster Mei Bagwani Ki Yojana",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Agricultural land between 0.25 acres and 10 acres",
+        "question": "How many acres of land do you own?",
+        "data_field": "land_owned_acres"
+      },
+      {
+        "eligibility_text": "Individual farmer, group, FPO, or cooperative society",
+        "question": "Are you a farmer?",
+        "data_field": "occupation_farmer"
+      },
+      {
+        "eligibility_text": "Registered on the Direct Benefit Transfer (DBT) portal",
+        "question": "Are you registered on the Direct Benefit Transfer (DBT) portal?",
+        "data_field": "dbt_registered"
+      }
+    ]
+  },
+  {
+    "name": "Cluster Mei Bagwani Ki Yojana-II",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Agricultural land between 0.25 acres and 10 acres",
+        "question": "How many acres of land do you own?",
+        "data_field": "land_owned_acres"
+      },
+      {
+        "eligibility_text": "Individual farmer, group, FPO, or cooperative society",
+        "question": "Are you a farmer?",
+        "data_field": "occupation_farmer"
+      },
+      {
+        "eligibility_text": "Registered on the Direct Benefit Transfer (DBT) portal",
+        "question": "Are you registered on the Direct Benefit Transfer (DBT) portal?",
+        "data_field": "dbt_registered"
+      }
+    ]
+  },
+  {
+    "name": "Death Assistance Scheme (BBOCWWB)",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Deceased worker registered with BBOCWWB",
+        "question": "Deceased worker registered with BBOCWWB?",
+        "data_field": "Death (registered with BBOCWWB)"
+      },
+      {
+        "eligibility_text": "Applicant must be the legal heir or dependent",
+        "question": "Applicant must be the legal heir or dependent?",
+        "data_field": "Death - Legal Heir or dependent"
+      },
+      {
+        "eligibility_text": "Active membership at the time of death",
+        "question": "Active membership at the time of death?",
+        "data_field": "occupation_construction_worker - Active menbership or not"
+      }
+    ]
+  },
+  {
+    "name": "Disability Pension (BBOCWWB)",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Registered construction worker with BBOCWWB",
+        "question": "Are you engaged in building or construction work?",
+        "data_field": "occupation_construction_worker"
+      },
+      {
+        "eligibility_text": "Active membership with the Board",
+        "question": "Active membership with the Board?",
+        "data_field": "occupation_construction_worker - Active menbership or not"
+      },
+      {
+        "eligibility_text": "Permanent total or partial disability caused by illness or accident",
+        "question": "Permanent total or partial disability caused by illness or accident?",
+        "data_field": "Disabled person (Permanent total or partial disability caused by illness or accident)"
+      }
+    ]
+  },
+  {
+    "name": "Family Pension (BBOCWWB)",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Dependent of a deceased worker",
+        "question": "Dependent of a deceased worker?",
+        "data_field": "Death (Dependent family member)"
+      },
+      {
+        "eligibility_text": "Worker was registered with BBOCWWB",
+        "question": "Are you registered with the Bihar Building & Other Construction Workers Welfare Board (BBOCWWB)?",
+        "data_field": "occupation_construction_worker"
+      },
+      {
+        "eligibility_text": "Worker was receiving regular pension from the Board",
+        "question": "Worker was receiving regular pension from the Board?",
+        "data_field": "Regular pension receiving"
+      }
+    ]
+  },
+  {
+    "name": "Financial Assistance for Cremation (BBOCWWB)",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Applicant must be a dependent of a deceased construction worker",
+        "question": "Are you engaged in building or construction work?",
+        "data_field": "occupation_construction_worker"
+      },
+      {
+        "eligibility_text": "Deceased worker was registered with BBOCWWB",
+        "question": "Deceased worker was registered with BBOCWWB?",
+        "data_field": "Death (registered with BBOCWWB)"
+      },
+      {
+        "eligibility_text": "Deceased worker maintained regular membership",
+        "question": "Deceased worker maintained regular membership?",
+        "data_field": "Death (registered with BBOCWWB and maintain regular membership)"
+      }
+    ]
+  },
+  {
+    "name": "Financial Assistance for Marriage (BBOCWWB)",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Registered construction worker with BBOCWWB",
+        "question": "Are you engaged in building or construction work?",
+        "data_field": "occupation_construction_worker"
+      },
+      {
+        "eligibility_text": "Daughters must be adults (18+)",
+        "question": "Daughters must be adults (18+)?",
+        "data_field": "Age - Daughter's age"
+      },
+      {
+        "eligibility_text": "Workers who remarry are ineligible",
+        "question": "Workers who remarry are ineligible?",
+        "data_field": "marital_status_remarried"
+      },
+      {
+        "eligibility_text": "Active membership at time of application",
+        "question": "Active membership at time of application?",
+        "data_field": "occupation_construction_worker - Active menbership or not"
+      },
+      {
+        "eligibility_text": "Continuous membership for at least three years",
+        "question": "Continuous membership for at least three years?",
+        "data_field": "occupation_construction_worker - membership period"
+      }
+    ]
+  },
+  {
+    "name": "Financial Assistance for Studies (BBOCWWB)",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Construction worker registered with BBOCWWB",
+        "question": "Are you engaged in building or construction work?",
+        "data_field": "occupation_construction_worker"
+      },
+      {
+        "eligibility_text": "Child pursuing technical/professional course in government institution",
+        "question": "Child pursuing technical/professional course in government institution?",
+        "data_field": "Enrolled in School / Institution (Child pursuing technical/professional course in government institution)"
+      },
+      {
+        "eligibility_text": "Minimum one year of continuous membership",
+        "question": "Minimum one year of continuous membership?",
+        "data_field": "occupation_construction_worker - membership period"
+      },
+      {
+        "eligibility_text": "Active membership at time of application",
+        "question": "Active membership at time of application?",
+        "data_field": "occupation_construction_worker - Active menbership or not"
+      }
+    ]
+  },
+  {
+    "name": "Grant for Purchase of Bicycle (BBOCWWB)",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Minimum of one year of continuous membership",
+        "question": "Minimum of one year of continuous membership?",
+        "data_field": "occupation_construction_worker - membership period"
+      },
+      {
+        "eligibility_text": "Active membership at the time of application",
+        "question": "Active membership at the time of application?",
+        "data_field": "occupation_construction_worker - Active menbership or not"
+      },
+      {
+        "eligibility_text": "Engaged in building or construction work",
+        "question": "Are you engaged in building or construction work?",
+        "data_field": "occupation_construction_worker"
+      },
+      {
+        "eligibility_text": "Registered with Bihar Building & Other Construction Workers Welfare Board (BBOCWWB)",
+        "question": "Are you engaged in building or construction work?",
+        "data_field": "occupation_construction_worker"
+      }
+    ]
+  },
+  {
+    "name": "Grant for Purchase of Tools (BBOCWWB)",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Registered construction worker with BBOCWWB",
+        "question": "Are you engaged in building or construction work?",
+        "data_field": "occupation_construction_worker"
+      },
+      {
+        "eligibility_text": "Active membership at time of application",
+        "question": "Active membership at time of application?",
+        "data_field": "occupation_construction_worker - Active menbership or not"
+      },
+      {
+        "eligibility_text": "Must have completed skill upgradation training",
+        "question": "Must have completed skill upgradation training?",
+        "data_field": "occupation_construction_worker - training_completed (skill upgradation training)"
+      }
+    ]
+  },
+  {
+    "name": "Grant for the Repair of House (BBOCWWB)",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Engaged in building or construction work",
+        "question": "Are you engaged in building or construction work?",
+        "data_field": "occupation_construction_worker"
+      },
+      {
+        "eligibility_text": "Must not have received aid for house construction, bicycles, or tools previously",
+        "question": "Must not have received aid for house construction, bicycles, or tools previously?",
+        "data_field": "Other"
+      },
+      {
+        "eligibility_text": "Assistance provided only once",
+        "question": "Assistance provided only once?",
+        "data_field": "Other"
+      },
+      {
+        "eligibility_text": "Membership must be active at the time of application",
+        "question": "Membership must be active at the time of application?",
+        "data_field": "occupation_construction_worker - Active menbership or not"
+      },
+      {
+        "eligibility_text": "Registered with BBOCWWB with minimum 3 years continuous membership",
+        "question": "Registered with BBOCWWB with minimum 3 years continuous membership?",
+        "data_field": "occupation_construction_worker - membership period"
+      }
+    ]
+  },
+  {
+    "name": "Indira Gandhi National Old Age Pension Scheme- Bihar",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Belong to a Below Poverty Line (BPL) family",
+        "question": "Belong to a Below Poverty Line (BPL) family?",
+        "data_field": "Belong to_Below Poverty Line (BPL) family"
+      },
+      {
+        "eligibility_text": "Resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Age 60 years or older",
+        "question": "What is your age?",
+        "data_field": "Age"
+      },
+      {
+        "eligibility_text": "Not receiving pension benefits under any other social security scheme",
+        "question": "Not receiving pension benefits under any other social security scheme?",
+        "data_field": "Other - Pension"
+      }
+    ]
+  },
+  {
+    "name": "Indira Gandhi National Widow Pension Scheme- Bihar",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Belong to a Below Poverty Line (BPL) family",
+        "question": "Belong to a Below Poverty Line (BPL) family?",
+        "data_field": "Belong to_Below Poverty Line (BPL) family"
+      },
+      {
+        "eligibility_text": "Widow aged between 40 and 79 years",
+        "question": "What is your age?",
+        "data_field": "Age"
+      },
+      {
+        "eligibility_text": "Resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Not receiving other social security pension benefits",
+        "question": "Not receiving other social security pension benefits?",
+        "data_field": "other - pension"
+      }
+    ]
+  },
+  {
+    "name": "Jan Nayak Pustakalaya evam Digital Adhyan Kendra",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Residing in a Jannayak Karpoori Thakur or OBC/EBC welfare hostel",
+        "question": "Residing in a Jannayak Karpoori Thakur or OBC/EBC welfare hostel?",
+        "data_field": "Reside in- (in a Jannayak Karpoori Thakur or OBC/EBC welfare hostel)"
+      },
+      {
+        "eligibility_text": "Belong to OBC or EBC category",
+        "question": "Belong to OBC or EBC category?",
+        "data_field": "Belong to_Catogory(OBC or EBC)"
+      }
+    ]
+  },
+  {
+    "name": "Jan-Nayak Karpoori Thakur Kalyan Hostel Scheme",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Permanent resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Studying in Class 10+2 or higher",
+        "question": "Studying in Class 10+2 or higher?",
+        "data_field": "Educational qualification: (Studying in Class 10+2 or higher)"
+      },
+      {
+        "eligibility_text": "Enrolled in institution near the Saharsa HQ hostel",
+        "question": "Enrolled in institution near the Saharsa HQ hostel?",
+        "data_field": "Enrolled in School / Institution (near the Saharsa HQ hostel)"
+      },
+      {
+        "eligibility_text": "Belong to Extremely Backward Class (EBC)",
+        "question": "Belong to Extremely Backward Class (EBC)?",
+        "data_field": "Belong to_Extremely Backward Class (EBC)"
+      }
+    ]
+  },
+  {
+    "name": "Janani Bal Suraksha Yojana",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Pregnant woman or nursing mother residing in Bihar",
+        "question": "Pregnant woman or nursing mother residing in Bihar?",
+        "data_field": "Pregnant woman or nursing/lactating mother "
+      },
+      {
+        "eligibility_text": "Willing to undergo institutional delivery",
+        "question": "Willing to undergo institutional delivery?",
+        "data_field": "Pregnant woman or nursing/lactating mother -Willing to undergo institutional delivery"
+      }
+    ]
+  },
+  {
+    "name": "Kabir Anthyesthi Anudan Yojana",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Deceased belonged to a Below Poverty Line (BPL) family",
+        "question": "Deceased belonged to a Below Poverty Line (BPL) family?",
+        "data_field": "Death (Belongs to Below Poverty Line (BPL) family)"
+      },
+      {
+        "eligibility_text": "Resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Family member or dependent of the deceased",
+        "question": "Family member or dependent of the deceased?",
+        "data_field": "Death (Dependent family member)"
+      }
+    ]
+  },
+  {
+    "name": "Khule Jalsroto Mei Pen Aadharit Matsya Paalan ki Yojana",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Groups formed from lessees of the committee in Man, Chaur, and Lake",
+        "question": "Groups formed from lessees of the committee in Man, Chaur, and Lake?",
+        "data_field": "other"
+      }
+    ]
+  },
+  {
+    "name": "Krishi Input Anudan Yojana",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Registered on the Direct Benefit Transfer (DBT) portal",
+        "question": "Are you registered on the Direct Benefit Transfer (DBT) portal?",
+        "data_field": "dbt_registered"
+      },
+      {
+        "eligibility_text": "Bank account linked with Aadhaar",
+        "question": "Bank account linked with Aadhaar?",
+        "data_field": "Bank account"
+      },
+      {
+        "eligibility_text": "Crop damage exceeding 33%",
+        "question": "Crop damage exceeding 33%?",
+        "data_field": "occupation farmer -Crop damage"
+      },
+      {
+        "eligibility_text": "Farmer in reported Panchayats of identified blocks",
+        "question": "Are you a farmer?",
+        "data_field": "occupation_farmer"
+      }
+    ]
+  },
+  {
+    "name": "Lakshmi Bai Samajik Suraksha Pension Yojana",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Widow woman resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Annual family income of ₹60,000 or less",
+        "question": "Annual family income of ₹60,000 or less?",
+        "data_field": "Family Income Annual"
+      },
+      {
+        "eligibility_text": "Living below the poverty line (BPL)",
+        "question": "Living below the poverty line (BPL)?",
+        "data_field": "Belong to_Below Poverty Line (BPL) family"
+      },
+      {
+        "eligibility_text": "Aged 18 years or more",
+        "question": "What is your age?",
+        "data_field": "Age"
+      }
+    ]
+  },
+  {
+    "name": "Makhana Vikas Yojana",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Land area between 0.25 acres and 10 acres",
+        "question": "How many acres of land do you own?",
+        "data_field": "land_owned_acres"
+      },
+      {
+        "eligibility_text": "Resident of 10 specified districts",
+        "question": "Resident of 10 specified districts?",
+        "data_field": "Resident of specified districts"
+      },
+      {
+        "eligibility_text": "Registered on the Direct Benefit Transfer (DBT) portal",
+        "question": "Are you registered on the Direct Benefit Transfer (DBT) portal?",
+        "data_field": "dbt_registered"
+      },
+      {
+        "eligibility_text": "Farmer",
+        "question": "Are you a farmer?",
+        "data_field": "occupation_farmer"
+      }
+    ]
+  },
+  {
+    "name": "Maternity Benefits Scheme (BBOCWWB)",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Female construction worker",
+        "question": "Female construction worker?",
+        "data_field": "occupation_construction_worker_Gender"
+      },
+      {
+        "eligibility_text": "Registered with BBOCWWB",
+        "question": "Are you registered with the Bihar Building & Other Construction Workers Welfare Board (BBOCWWB)?",
+        "data_field": "occupation_construction_worker"
+      },
+      {
+        "eligibility_text": "Benefit for first two childbirths only",
+        "question": "Benefit for first two childbirths only?",
+        "data_field": "Children"
+      },
+      {
+        "eligibility_text": "Minimum one year of membership",
+        "question": "Minimum one year of membership?",
+        "data_field": "occupation_construction_worker - membership period"
+      },
+      {
+        "eligibility_text": "Active membership at time of application",
+        "question": "Active membership at time of application?",
+        "data_field": "occupation_construction_worker - Active menbership or not"
+      }
+    ]
+  },
+  {
+    "name": "Mukhya Mantri Balika Poshak Yojna",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Girl student",
+        "question": "Girl student?",
+        "data_field": "Occupation - Student (Girl or Boy)"
+      },
+      {
+        "eligibility_text": "Enrolled in Classes VI or VII",
+        "question": "Enrolled in Classes VI or VII?",
+        "data_field": "Educational qualification: (Enrolled in Classes VI or VII)"
+      },
+      {
+        "eligibility_text": "Enrolled in a government school",
+        "question": "Enrolled in a government school?",
+        "data_field": "Enrolled in School / Institution (government school)"
+      }
+    ]
+  },
+  {
+    "name": "Mukhyamantri Alpasankhyak Udyami Yojana",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Belong to Minority community",
+        "question": "Belong to Minority community?",
+        "data_field": "Belong to_minority community"
+      },
+      {
+        "eligibility_text": "Age between 18 and 50 years",
+        "question": "What is your age?",
+        "data_field": "Age"
+      },
+      {
+        "eligibility_text": "Permanent resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Business as proprietorship or partnership",
+        "question": "Business as proprietorship or partnership?",
+        "data_field": "Occupation - Business - proprietorship or partnership"
+      },
+      {
+        "eligibility_text": "Education: 10+2, ITI, or Polytechnic Diploma",
+        "question": "Education: 10+2, ITI, or Polytechnic Diploma?",
+        "data_field": "Educational qualification: (12th, ITI, or Polytechnic Diploma, other)"
+      }
+    ]
+  },
+  {
+    "name": "Mukhyamantri Alpsankhyak Chhatravas Yojana",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Native of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Enrolled in a recognized institution",
+        "question": "Enrolled in a recognized institution?",
+        "data_field": "Enrolled in School / Institution (recognized institution)"
+      },
+      {
+        "eligibility_text": "belonging to a minority community",
+        "question": "belonging to a minority community?",
+        "data_field": "Belong to_minority community"
+      },
+      {
+        "eligibility_text": "A person should be a student",
+        "question": "A person should be a student?",
+        "data_field": "Occupation - Student"
+      },
+      {
+        "eligibility_text": "Residing in a hostel operated by the Minority Welfare Department",
+        "question": "Residing in a hostel operated by the Minority Welfare Department?",
+        "data_field": "Reside in-  hostel operated by the Minority Welfare Department"
+      }
+    ]
+  },
+  {
+    "name": "Mukhyamantri Alpsankhyak Rozgar Rinn Yojana",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Age between 18 and 50 years",
+        "question": "What is your age?",
+        "data_field": "Age"
+      },
+      {
+        "eligibility_text": "Permanent resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Annual family income less than ₹4,00,000",
+        "question": "Annual family income less than ₹4,00,000?",
+        "data_field": "Family Income Annual"
+      },
+      {
+        "eligibility_text": "Not a government or semi-government employee",
+        "question": "Not a government or semi-government employee?",
+        "data_field": "occupation_Employment - government or semi-government or other"
+      },
+      {
+        "eligibility_text": "Belong to a minority community (Muslim, Sikh, Christian, Buddhist, Jain, or Parsi)",
+        "question": "Belong to a minority community (Muslim, Sikh, Christian, Buddhist, Jain, or Parsi)?",
+        "data_field": "Belong to_minority community"
+      },
+      {
+        "eligibility_text": "Educational qualification or skill development training",
+        "question": "Educational qualification or skill development training?",
+        "data_field": "Educational qualification: skill development training"
+      }
+    ]
+  },
+  {
+    "name": "Mukhyamantri Anusuchit Jati / Anusuchit Janjati Udyami Yojana",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Age between 18 and 50 years",
+        "question": "What is your age?",
+        "data_field": "Age"
+      },
+      {
+        "eligibility_text": "Permanent resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Business as proprietorship or partnership",
+        "question": "Business as proprietorship or partnership?",
+        "data_field": "Occupation - Business - proprietorship or partnership"
+      },
+      {
+        "eligibility_text": "Belong to SC or ST category",
+        "question": "Belong to SC or ST category?",
+        "data_field": "Belong to_Catogory(SC or ST)"
+      },
+      {
+        "eligibility_text": "Education: 10+2, ITI, or Polytechnic Diploma",
+        "question": "Education: 10+2, ITI, or Polytechnic Diploma?",
+        "data_field": "Educational qualification: (12th, ITI, or Polytechnic Diploma, other)"
+      }
+    ]
+  },
+  {
+    "name": "Mukhyamantri Anusuchit Jati Evam Anusuchit Janjati Chhatrawas Anudan Yojana",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Studying in recognized course/institution",
+        "question": "Studying in recognized course/institution?",
+        "data_field": "Enrolled in School / Institution/ course (recognized course/institution)"
+      },
+      {
+        "eligibility_text": "Belong to SC or ST category",
+        "question": "Belong to SC or ST category?",
+        "data_field": "Belong to_Catogory(SC or ST)"
+      },
+      {
+        "eligibility_text": "Enrolled and residing in hostels operated by SC/ST Welfare Dept",
+        "question": "Enrolled and residing in hostels operated by SC/ST Welfare Dept?",
+        "data_field": "Reside in- (in hostels operated by SC/ST Welfare Dept)"
+      }
+    ]
+  },
+  {
+    "name": "Mukhyamantri Anusuchit Jati Ewam Anusuchit Janjati Civil Sewa Protsahan Yojana",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Permanent resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Passed preliminary examination of BPSC or UPSC",
+        "question": "Passed preliminary examination of BPSC or UPSC?",
+        "data_field": "Educational qualification: (Passed preliminary examination of UPSC, BPSC)"
+      },
+      {
+        "eligibility_text": "Benefit available only once",
+        "question": "Benefit available only once?",
+        "data_field": "Other"
+      },
+      {
+        "eligibility_text": "Not received same incentive from other sources",
+        "question": "Not received same incentive from other sources?",
+        "data_field": "other"
+      },
+      {
+        "eligibility_text": "Not employed in Government/PSU",
+        "question": "Not employed in Government/PSU?",
+        "data_field": "occupation_Employment - Governement/PSU or other"
+      },
+      {
+        "eligibility_text": "Belong to Scheduled Caste (SC) or Scheduled Tribe (ST) category",
+        "question": "Belong to Scheduled Caste (SC) or Scheduled Tribe (ST) category?",
+        "data_field": "Belong to_Catogory(SC or ST)"
+      }
+    ]
+  },
+  {
+    "name": "Mukhyamantri Ati Pichhada Varg Udyami Yojana",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Permanent resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Passed 10+2, Intermediate, ITI, or Polytechnic Diploma",
+        "question": "Passed 10+2, Intermediate, ITI, or Polytechnic Diploma?",
+        "data_field": "Educational qualification: (12th, ITI, or Polytechnic Diploma, other)"
+      },
+      {
+        "eligibility_text": "Business unit must be a proprietorship or partnership firm",
+        "question": "Business unit must be a proprietorship or partnership firm?",
+        "data_field": "Occupation - Business - proprietorship or partnership"
+      },
+      {
+        "eligibility_text": "Belong to Extremely Backward Classes (EBC)",
+        "question": "Belong to Extremely Backward Classes (EBC)?",
+        "data_field": "Belong to_Extremely Backward Class (EBC)"
+      },
+      {
+        "eligibility_text": "Aged between 18 and 50 years",
+        "question": "What is your age?",
+        "data_field": "Age"
+      }
+    ]
+  },
+  {
+    "name": "Mukhyamantri Atyant Pichhda Varg Medhavriti Yojana",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Permanent resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Passed 10th class (Matric) in first division from BSEB Patna",
+        "question": "Passed 10th class (Matric) in first division from BSEB Patna?",
+        "data_field": "Educational qualification: (10th class (Matric) in first division from BSEB Patna)"
+      },
+      {
+        "eligibility_text": "Belong to Extremely Backward Class (BC-I) category",
+        "question": "Belong to Extremely Backward Class (BC-I) category?",
+        "data_field": "Belong to_Extremely Backward Class (EBC)"
+      }
+    ]
+  },
+  {
+    "name": "Mukhyamantri Bagwani Mission: Aam Vikas Yojana",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Land area between 0.25 acres and 10 acres",
+        "question": "How many acres of land do you own?",
+        "data_field": "land_owned_acres"
+      },
+      {
+        "eligibility_text": "Resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Registered on the Direct Benefit Transfer (DBT) portal",
+        "question": "Are you registered on the Direct Benefit Transfer (DBT) portal?",
+        "data_field": "dbt_registered"
+      },
+      {
+        "eligibility_text": "Ryot farmer",
+        "question": "Are you a farmer?",
+        "data_field": "occupation_farmer"
+      }
+    ]
+  },
+  {
+    "name": "Mukhyamantri Bagwani Mission: Anjeer Vikas Yojana",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Agricultural land between 0.25 acres and 10 acres",
+        "question": "How many acres of land do you own?",
+        "data_field": "land_owned_acres"
+      },
+      {
+        "eligibility_text": "Resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Ryot farmer (land-owning)",
+        "question": "Are you a farmer?",
+        "data_field": "occupation_farmer"
+      },
+      {
+        "eligibility_text": "Registered on the Direct Benefit Transfer (DBT) portal",
+        "question": "Are you registered on the Direct Benefit Transfer (DBT) portal?",
+        "data_field": "dbt_registered"
+      }
+    ]
+  },
+  {
+    "name": "Mukhyamantri Bagwani Mission: Dragon Fruit Vikas Yojana",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Land area between 0.25 acres and 10 acres",
+        "question": "How many acres of land do you own?",
+        "data_field": "land_owned_acres"
+      },
+      {
+        "eligibility_text": "Resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Resident of 21 specified districts",
+        "question": "Resident of 21 specified districts?",
+        "data_field": "Resident of specified districts"
+      },
+      {
+        "eligibility_text": "Registered on the Direct Benefit Transfer (DBT) portal",
+        "question": "Are you registered on the Direct Benefit Transfer (DBT) portal?",
+        "data_field": "dbt_registered"
+      },
+      {
+        "eligibility_text": "Ryot farmer",
+        "question": "Are you a farmer?",
+        "data_field": "occupation_farmer"
+      }
+    ]
+  },
+  {
+    "name": "Mukhyamantri Bagwani Mission: Kela Vikas Yojana",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Resident of specific districts (Arwal, Bhojpur, Buxar, etc.)",
+        "question": "Resident of specific districts (Arwal, Bhojpur, Buxar, etc.)?",
+        "data_field": "Resident of districts (Arwal, Bhojpur, Buxar, etc.)"
+      },
+      {
+        "eligibility_text": "Registered on the Direct Benefit Transfer (DBT) portal",
+        "question": "Are you registered on the Direct Benefit Transfer (DBT) portal?",
+        "data_field": "dbt_registered"
+      },
+      {
+        "eligibility_text": "Must be a farmer",
+        "question": "Are you a farmer?",
+        "data_field": "occupation_farmer"
+      },
+      {
+        "eligibility_text": "Land ownership between 0.25 acres and 10 acres",
+        "question": "How many acres of land do you own?",
+        "data_field": "land_owned_acres"
+      }
+    ]
+  },
+  {
+    "name": "Mukhyamantri Bagwani Mission: Strawberry Vikas Yojana",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Land area between 0.25 acres and 5 acres",
+        "question": "How many acres of land do you own?",
+        "data_field": "land_owned_acres"
+      },
+      {
+        "eligibility_text": "Resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Resident of 20 specified districts",
+        "question": "Resident of 20 specified districts?",
+        "data_field": "Resident of specified districts"
+      },
+      {
+        "eligibility_text": "Registered on the Direct Benefit Transfer (DBT) portal",
+        "question": "Are you registered on the Direct Benefit Transfer (DBT) portal?",
+        "data_field": "dbt_registered"
+      },
+      {
+        "eligibility_text": "Farmer",
+        "question": "Are you a farmer?",
+        "data_field": "occupation_farmer"
+      }
+    ]
+  },
+  {
+    "name": "Mukhyamantri Balika (Snatak) Protsahan Yojana",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Girl student",
+        "question": "Girl student?",
+        "data_field": "Occupation - Student (Girl or Boy)"
+      },
+      {
+        "eligibility_text": "Graduated after April 25, 2018 from recognized institution in Bihar",
+        "question": "Graduated after April 25, 2018 from recognized institution in Bihar?",
+        "data_field": "Education_Graduated after April 25, 2018 from recognized institution in Bihar"
+      },
+      {
+        "eligibility_text": "Bank account in Bihar",
+        "question": "Bank account in Bihar?",
+        "data_field": "Bank account"
+      }
+    ]
+  },
+  {
+    "name": "Mukhyamantri Balika Cycle Yojna",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Girl student",
+        "question": "Girl student?",
+        "data_field": "Occupation - Student (Girl or Boy)"
+      },
+      {
+        "eligibility_text": "Enrolled in government or government-recognized secondary school",
+        "question": "Enrolled in government or government-recognized secondary school?",
+        "data_field": "Enrolled in School / Institution (government or government-recognized secondary school)"
+      },
+      {
+        "eligibility_text": "Completed Class VIII and transitioning to Class IX or higher",
+        "question": "Completed Class VIII and transitioning to Class IX or higher?",
+        "data_field": "Educational qualification: (Completed Class VIII and transitioning to Class IX or higher)"
+      }
+    ]
+  },
+  {
+    "name": "Mukhyamantri Balika Protsahan Yojana (Intermediate Pass)",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Unmarried girl",
+        "question": "What is your marital status?",
+        "data_field": "marital_status"
+      },
+      {
+        "eligibility_text": "Passed intermediate examination from a recognized institution in Bihar",
+        "question": "Passed intermediate examination from a recognized institution in Bihar?",
+        "data_field": "Educational qualification: (intermediate examination from a recognized institution in Bihar)"
+      },
+      {
+        "eligibility_text": "Examination conducted in 2021 or later",
+        "question": "Examination conducted in 2021 or later?",
+        "data_field": "Educational qualification: passing year"
+      }
+    ]
+  },
+  {
+    "name": "Mukhyamantri Balika Protsahan Yojana (Matriculation)",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Resident of the state",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Girl student",
+        "question": "Girl student?",
+        "data_field": "Occupation - Student (Girl or Boy)"
+      },
+      {
+        "eligibility_text": "Secured first division in matriculation examination",
+        "question": "Secured first division in matriculation examination?",
+        "data_field": "Educational qualification: (Child passed 10th or 12th from a Bihar board with 60% or above)"
+      }
+    ]
+  },
+  {
+    "name": "Mukhyamantri Divyangjan Sashaktikaran Chhatra Yojana",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Reside 3km or more from place of education or work",
+        "question": "Reside 3km or more from place of education or work?",
+        "data_field": "Reside in- 3km or more from place of education or work"
+      },
+      {
+        "eligibility_text": "Permanent resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Locomotor-disabled student or employee",
+        "question": "Locomotor-disabled student or employee?",
+        "data_field": "Disabled person (Locomotor-disabled student or employee)"
+      },
+      {
+        "eligibility_text": "Annual family income not exceeding ₹2,00,000",
+        "question": "Annual family income not exceeding ₹2,00,000?",
+        "data_field": "Family Income Annual"
+      },
+      {
+        "eligibility_text": "Age 18 years or above",
+        "question": "What is your age?",
+        "data_field": "Age"
+      },
+      {
+        "eligibility_text": "Minimum disability of 60 percent",
+        "question": "Minimum disability of 60 percent?",
+        "data_field": "Disabled person (Percentage)"
+      }
+    ]
+  },
+  {
+    "name": "Mukhyamantri Gram Parivahan Yojana",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Not benefited from a similar scheme previously",
+        "question": "Not benefited from a similar scheme previously?",
+        "data_field": "Other"
+      },
+      {
+        "eligibility_text": "Belong to a rural area",
+        "question": "Belong to a rural area?",
+        "data_field": "Belong to_Rular Area"
+      }
+    ]
+  },
+  {
+    "name": "Mukhyamantri Gramin Awas Yojana",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Belong to SC, ST, or Extremely Backward Class (EBC)",
+        "question": "Belong to SC, ST, or Extremely Backward Class (EBC)?",
+        "data_field": "Belong to_SC, ST or Extremely Backward Class (EBC)"
+      },
+      {
+        "eligibility_text": "Resident of rural area in Bihar",
+        "question": "Resident of rural area in Bihar?",
+        "data_field": "Reside in-  rural area in Bihar"
+      },
+      {
+        "eligibility_text": "Reside in cluster housing built before January 1996",
+        "question": "Reside in cluster housing built before January 1996?",
+        "data_field": "Reside in- cluster housing built before January 1996"
+      },
+      {
+        "eligibility_text": "House is in a dilapidated condition",
+        "question": "House is in a dilapidated condition?",
+        "data_field": "Reside in- cluster housing built before January 1996 (House is in a dilapidated condition?)"
+      }
+    ]
+  },
+  {
+    "name": "Mukhyamantri Gramin Peyjal Nishchay Yojana",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Resident of a rural area in Bihar",
+        "question": "Resident of a rural area in Bihar?",
+        "data_field": "Reside in-  rural area in Bihar"
+      },
+      {
+        "eligibility_text": "Household without an existing piped water supply connection",
+        "question": "Household without an existing piped water supply connection?",
+        "data_field": "Other - Household without an existing piped water supply connection"
+      },
+      {
+        "eligibility_text": "Willing to contribute to operation and maintenance",
+        "question": "Willing to contribute to operation and maintenance?",
+        "data_field": "Other - Household without an existing piped water supply connection (Willing to contribute to operation and maintenance)"
+      }
+    ]
+  },
+  {
+    "name": "Mukhyamantri Kanya Suraksha Yojana",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Family belongs to Below Poverty Line (BPL) category",
+        "question": "Family belongs to Below Poverty Line (BPL) category?",
+        "data_field": "Belong to_Below Poverty Line (BPL) family"
+      },
+      {
+        "eligibility_text": "Resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Girl child born on or after November 22, 2007",
+        "question": "Girl child born on or after November 22, 2007?",
+        "data_field": "Childern -Girl child_Date of birth"
+      },
+      {
+        "eligibility_text": "Maximum of 2 girls per family",
+        "question": "Maximum of 2 girls per family?",
+        "data_field": "Children (girl or boy)"
+      }
+    ]
+  },
+  {
+    "name": "Mukhyamantri Kanya Vivah Yojana",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Groom aged 21 or older",
+        "question": "What is your age?",
+        "data_field": "Age"
+      },
+      {
+        "eligibility_text": "Girl aged 18 or older at time of application",
+        "question": "What is your age?",
+        "data_field": "Age"
+      },
+      {
+        "eligibility_text": "Family is BPL or annual income <= ₹60,000",
+        "question": "Family is BPL or annual income <= ₹60,000?",
+        "data_field": "Belong to_Below Poverty Line (BPL) family"
+      },
+      {
+        "eligibility_text": "Native of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Marriage must be registered",
+        "question": "Marriage must be registered?",
+        "data_field": "marital_status_registered"
+      }
+    ]
+  },
+  {
+    "name": "Mukhyamantri Kishori Swasthya Yojna",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Girl student",
+        "question": "Girl student?",
+        "data_field": "Occupation - Student (Girl or Boy)"
+      },
+      {
+        "eligibility_text": "Enrolled in a recognized secondary school",
+        "question": "Enrolled in a recognized secondary school?",
+        "data_field": "Enrolled in School / Institution (recognized secondary school)"
+      }
+    ]
+  },
+  {
+    "name": "Mukhyamantri Mahila Udyami Yojana",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Age between 18 and 50 years",
+        "question": "What is your age?",
+        "data_field": "Age"
+      },
+      {
+        "eligibility_text": "Educational qualification: 10+2, ITI, or Polytechnic Diploma",
+        "question": "Educational qualification: 10+2, ITI, or Polytechnic Diploma?",
+        "data_field": "Educational qualification: (12th, ITI, or Polytechnic Diploma, other)"
+      },
+      {
+        "eligibility_text": "Permanent resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Female or Transgender applicant",
+        "question": "What is your gender?",
+        "data_field": "Gender"
+      },
+      {
+        "eligibility_text": "Business unit must be a proprietorship or partnership firm",
+        "question": "Business unit must be a proprietorship or partnership firm?",
+        "data_field": "Occupation - Business - proprietorship or partnership"
+      }
+    ]
+  },
+  {
+    "name": "Mukhyamantri Nijee Nalkup Yojana",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Minimum 0.40 acre of land ownership",
+        "question": "How many acres of land do you own?",
+        "data_field": "land_owned_acres"
+      },
+      {
+        "eligibility_text": "No existing borewell at the site",
+        "question": "No existing borewell at the site?",
+        "data_field": "Other - Borewell "
+      },
+      {
+        "eligibility_text": "No previous grants for borewell at same site",
+        "question": "No previous grants for borewell at same site?",
+        "data_field": "Other - Borewell "
+      },
+      {
+        "eligibility_text": "Borewell depth 15-70 meters",
+        "question": "Borewell depth 15-70 meters?",
+        "data_field": "Other - Borewell "
+      },
+      {
+        "eligibility_text": "Farmer identified under Saat Nischay-2",
+        "question": "Are you a farmer?",
+        "data_field": "occupation_farmer"
+      }
+    ]
+  },
+  {
+    "name": "Mukhyamantri Nischay Swayam Sahayata Bhatta Yojna",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Age between 20 and 25 years",
+        "question": "What is your age?",
+        "data_field": "Age"
+      },
+      {
+        "eligibility_text": "Unemployed resident of Bihar district",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Not receiving any other allowance, scholarship, or student credit card",
+        "question": "Not receiving any other allowance, scholarship, or student credit card?",
+        "data_field": "other"
+      },
+      {
+        "eligibility_text": "Not self-employed or in government/non-government employment",
+        "question": "Not self-employed or in government/non-government employment?",
+        "data_field": "occupation_Employment - Governement/PSU, self employed or other"
+      },
+      {
+        "eligibility_text": "Must undergo training in language communication and basic computer knowledge",
+        "question": "Must undergo training in language communication and basic computer knowledge?",
+        "data_field": "Educational qualification: training in language communication and basic computer knowledge"
+      },
+      {
+        "eligibility_text": "Passed 12th (Inter) but not received higher education",
+        "question": "Passed 12th (Inter) but not received higher education?",
+        "data_field": "Educational qualification: (12th (Inter) but not received higher education)"
+      }
+    ]
+  },
+  {
+    "name": "Mukhyamantri Pichhda Varg Evam Ati Pichhda Varg Kaushal Vikas Prashikshan Yojana",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Age between 18 and 45 years",
+        "question": "What is your age?",
+        "data_field": "Age"
+      },
+      {
+        "eligibility_text": "Resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Possess Aadhaar number",
+        "question": "Possess Aadhaar number?",
+        "data_field": "Aadhaar number"
+      },
+      {
+        "eligibility_text": "Belong to Backward Class or Extremely Backward Class",
+        "question": "Belong to Backward Class or Extremely Backward Class?",
+        "data_field": "Belong to_Backward Class (BC) or Extremely Backward Class (EBC)"
+      }
+    ]
+  },
+  {
+    "name": "Mukhyamantri Prakhand Parivahan Yojana",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Resident of the block where applying",
+        "question": "Resident of the block where applying?",
+        "data_field": "Resident of block where applying"
+      },
+      {
+        "eligibility_text": "Age 18 years or older",
+        "question": "What is your age?",
+        "data_field": "Age"
+      },
+      {
+        "eligibility_text": "Must have a driving license",
+        "question": "Must have a driving license?",
+        "data_field": "Driving license"
+      },
+      {
+        "eligibility_text": "Not employed in government service",
+        "question": "Not employed in government service?",
+        "data_field": "occupation_Employment - Governement/PSU or other"
+      },
+      {
+        "eligibility_text": "Belong to SC, ST, EBC, BC, Minority, or General category",
+        "question": "Belong to SC, ST, EBC, BC, Minority, or General category?",
+        "data_field": "Belong to_(SC, ST, EBC, BC, Minority, or General category)"
+      }
+    ]
+  },
+  {
+    "name": "Mukhyamantri Samekit Chaur Vikas Yojana",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Individual, family, group, or entrepreneur",
+        "question": "Individual, family, group, or entrepreneur?",
+        "data_field": "Other "
+      },
+      {
+        "eligibility_text": "Individual/family max 5 hectares; Group max 20 hectares",
+        "question": "Individual/family max 5 hectares; Group max 20 hectares?",
+        "data_field": "Other - Individual/family max 5 hectares; Group max 20 hectares"
+      },
+      {
+        "eligibility_text": "Private landowner or lessee in Chaur-dominated districts",
+        "question": "Private landowner or lessee in Chaur-dominated districts?",
+        "data_field": "Other"
+      }
+    ]
+  },
+  {
+    "name": "Mukhyamantri Shramshakti Yojana",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Belong to a minority community",
+        "question": "Belong to a minority community?",
+        "data_field": "Belong to_minority community"
+      },
+      {
+        "eligibility_text": "Age between 18 and 45 years",
+        "question": "What is your age?",
+        "data_field": "Age"
+      },
+      {
+        "eligibility_text": "Permanent resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Annual family income less than ₹4,50,000",
+        "question": "Annual family income less than ₹4,50,000?",
+        "data_field": "Family Income Annual"
+      }
+    ]
+  },
+  {
+    "name": "Mukhyamantri Vas Sthal Kray Sahayata Yojana",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Listed as a beneficiary under PMAY-G",
+        "question": "Listed as a beneficiary under PMAY-G?",
+        "data_field": "Other - Listed as a beneficiary under PMAY-G"
+      },
+      {
+        "eligibility_text": "Landless and houseless",
+        "question": "Landless and houseless?",
+        "data_field": "Landless and houseless"
+      },
+      {
+        "eligibility_text": "Reside in a village with no available government land for housing",
+        "question": "Reside in a village with no available government land for housing?",
+        "data_field": "Reside in- village with no available government land for housing"
+      }
+    ]
+  },
+  {
+    "name": "Mukhyamantri Vidyarthi Protsahan Yojana",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Minority student resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Passed Matric/Inter/Fauquania/Maulvi with first-class marks",
+        "question": "Passed Matric/Inter/Fauquania/Maulvi with first-class marks?",
+        "data_field": "Educational qualification: (Matric/Inter/Fauquania/Maulvi with first-class marks)"
+      },
+      {
+        "eligibility_text": "Passed from Bihar School Examination Board or Bihar Madrasa Education Board",
+        "question": "Passed from Bihar School Examination Board or Bihar Madrasa Education Board?",
+        "data_field": "Educational qualification: (From Bihar School Examination Board or Bihar Madrasa Education Board)"
+      }
+    ]
+  },
+  {
+    "name": "Mukhyamantri Vridhjan Pension Yojna",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Permanent resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Not a retired government employee",
+        "question": "Not a retired government employee?",
+        "data_field": "occupation_Employment - retired government employee"
+      },
+      {
+        "eligibility_text": "Not receiving any other government/social security pension",
+        "question": "Not receiving any other government/social security pension?",
+        "data_field": "occupation_Employment - pension"
+      },
+      {
+        "eligibility_text": "Aged 60 years or above",
+        "question": "What is your age?",
+        "data_field": "Age"
+      }
+    ]
+  },
+  {
+    "name": "Mukhyamantri Vyavsayik Pathyakram Margdarshan Evam Utpreran Yojana",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Permanent resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Annual family income not exceeding ₹3,00,000",
+        "question": "Annual family income not exceeding ₹3,00,000?",
+        "data_field": "Family Income Annual"
+      },
+      {
+        "eligibility_text": "Meet minimum qualifications for competitive exams",
+        "question": "Meet minimum qualifications for competitive exams?",
+        "data_field": "Educational qualification: (Meet minimum qualifications for competitive exams)"
+      },
+      {
+        "eligibility_text": "Belong to BC or EBC category",
+        "question": "Belong to BC or EBC category?",
+        "data_field": "Belong to_Backward Class (BC) or Extremely Backward Class (EBC)"
+      }
+    ]
+  },
+  {
+    "name": "Mukhyamantri Yuva Udyami Yojana",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Age between 18 and 50 years",
+        "question": "What is your age?",
+        "data_field": "Age"
+      },
+      {
+        "eligibility_text": "Male applicant from General or Backward Class",
+        "question": "Male applicant from General or Backward Class?",
+        "data_field": "Belong to_General or Backward Class"
+      },
+      {
+        "eligibility_text": "Educational qualification: 10+2, ITI, or Polytechnic Diploma",
+        "question": "Educational qualification: 10+2, ITI, or Polytechnic Diploma?",
+        "data_field": "Educational qualification: (12th, ITI, or Polytechnic Diploma, other)"
+      },
+      {
+        "eligibility_text": "Permanent resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Business unit must be a proprietorship or partnership firm",
+        "question": "Business unit must be a proprietorship or partnership firm?",
+        "data_field": "Occupation - Business - proprietorship or partnership"
+      }
+    ]
+  },
+  {
+    "name": "Mushroom Kit Vitaran",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Registered on the Direct Benefit Transfer (DBT) portal",
+        "question": "Are you registered on the Direct Benefit Transfer (DBT) portal?",
+        "data_field": "dbt_registered"
+      },
+      {
+        "eligibility_text": "Not benefited in last 3 years",
+        "question": "Not benefited in last 3 years?",
+        "data_field": "Other"
+      },
+      {
+        "eligibility_text": "One member per family",
+        "question": "One member per family?",
+        "data_field": "Other  - One member per family"
+      },
+      {
+        "eligibility_text": "Farmer",
+        "question": "Are you a farmer?",
+        "data_field": "occupation_farmer"
+      }
+    ]
+  },
+  {
+    "name": "Nariwal Paudha Vitaran Yojana",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Registered farmer on the DBT portal",
+        "question": "Are you a farmer?",
+        "data_field": "occupation_farmer"
+      },
+      {
+        "eligibility_text": "Interested in planting coconut saplings",
+        "question": "Interested in planting coconut saplings?",
+        "data_field": "occupation_farmer"
+      }
+    ]
+  },
+  {
+    "name": "National Family Benefit Scheme- Bihar",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Deceased aged between 18 and 60 years at time of death",
+        "question": "Deceased aged between 18 and 60 years at time of death?",
+        "data_field": "Death - Age"
+      },
+      {
+        "eligibility_text": "Family living Below Poverty Line (BPL)",
+        "question": "Family living Below Poverty Line (BPL)?",
+        "data_field": "Belong to_Below Poverty Line (BPL) family"
+      },
+      {
+        "eligibility_text": "Resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Dependent of deceased primary breadwinner",
+        "question": "Dependent of deceased primary breadwinner?",
+        "data_field": "Death (Dependent family member)"
+      }
+    ]
+  },
+  {
+    "name": "Niji Talabon Ka Jirnoddhar Ki Yojana",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Private pond owner or lessee",
+        "question": "Private pond owner or lessee?",
+        "data_field": "Other - Pond"
+      },
+      {
+        "eligibility_text": "Pond not renovated under govt scheme in last 5 years",
+        "question": "Pond not renovated under govt scheme in last 5 years?",
+        "data_field": "Other - Pond"
+      },
+      {
+        "eligibility_text": "Pond size between 0.10 and 0.5 hectare",
+        "question": "Pond size between 0.10 and 0.5 hectare?",
+        "data_field": "Other - Pond"
+      },
+      {
+        "eligibility_text": "Fish farmer",
+        "question": "Are you a farmer?",
+        "data_field": "occupation_farmer"
+      }
+    ]
+  },
+  {
+    "name": "Old Age Home (Sahara)",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Below Poverty Line (BPL) category or annual income below ₹60,000",
+        "question": "Below Poverty Line (BPL) category or annual income below ₹60,000?",
+        "data_field": "Belong to_Below Poverty Line (BPL) family"
+      },
+      {
+        "eligibility_text": "Resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Age 60 years or above",
+        "question": "What is your age?",
+        "data_field": "Age"
+      }
+    ]
+  },
+  {
+    "name": "Parwarish Yojana",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Age between 0 and 18 years",
+        "question": "What is your age?",
+        "data_field": "Age"
+      },
+      {
+        "eligibility_text": "Annual family income less than ₹60,000 or BPL",
+        "question": "Annual family income less than ₹60,000 or BPL?",
+        "data_field": "Family Income Annual"
+      },
+      {
+        "eligibility_text": "Orphaned/destitute children or children with HIV/AIDS/Leprosy",
+        "question": "Orphaned/destitute children or children with HIV/AIDS/Leprosy?",
+        "data_field": "medical diseases - (Orphaned/destitute children or children with HIV/AIDS/Leprosy)"
+      }
+    ]
+  },
+  {
+    "name": "Pashu Bima Yojana",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Member of Milk Producer Cooperation Committee",
+        "question": "Member of Milk Producer Cooperation Committee?",
+        "data_field": "other - Member of Milk Producer Cooperation Committee"
+      },
+      {
+        "eligibility_text": "Cattle must be healthy and certified by a vet",
+        "question": "Cattle must be healthy and certified by a vet?",
+        "data_field": "Other - Cattle health"
+      },
+      {
+        "eligibility_text": "Farmer of milch cattle",
+        "question": "Are you a farmer?",
+        "data_field": "occupation_farmer"
+      }
+    ]
+  },
+  {
+    "name": "Paternity Benefit Scheme (BBOCWWB)",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Male construction worker registered with BBOCWWB",
+        "question": "Are you engaged in building or construction work?",
+        "data_field": "occupation_construction_worker"
+      },
+      {
+        "eligibility_text": "Wife must not be registered with the Board",
+        "question": "Wife must not be registered with the Board?",
+        "data_field": "Other - (BBOCWWB)"
+      },
+      {
+        "eligibility_text": "Applicable for the first two childbirths only",
+        "question": "Applicable for the first two childbirths only?",
+        "data_field": "Children"
+      },
+      {
+        "eligibility_text": "Active membership for at least one year",
+        "question": "Active membership for at least one year?",
+        "data_field": "occupation_construction_worker - Active menbership or not"
+      }
+    ]
+  },
+  {
+    "name": "Pathari Kshetr Talab Nirman Aadharit Matsya Paalan ki Yojana",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Must own or lease land in identified plateau-dominated districts of Bihar",
+        "question": "Must own or lease land in identified plateau-dominated districts of Bihar?",
+        "data_field": "Other - Pond"
+      },
+      {
+        "eligibility_text": "Pond size must be between 0.4 acre and 1 acre",
+        "question": "Pond size must be between 0.4 acre and 1 acre?",
+        "data_field": "Other - Pond size acres"
+      },
+      {
+        "eligibility_text": "Must install a concrete board on the pond",
+        "question": "Must install a concrete board on the pond?",
+        "data_field": "Other - Pond"
+      }
+    ]
+  },
+  {
+    "name": "Pension Scheme (BBOCWWB)",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Registered construction worker with BBOCWWB",
+        "question": "Are you engaged in building or construction work?",
+        "data_field": "occupation_construction_worker"
+      },
+      {
+        "eligibility_text": "Age 60 years or older",
+        "question": "What is your age?",
+        "data_field": "Age"
+      },
+      {
+        "eligibility_text": "Not receiving pension from any other social security scheme",
+        "question": "Not receiving pension from any other social security scheme?",
+        "data_field": "occupation_construction_worker - pension"
+      },
+      {
+        "eligibility_text": "Continuous membership for minimum 5 years",
+        "question": "Continuous membership for minimum 5 years?",
+        "data_field": "occupation_construction_worker - membership period"
+      }
+    ]
+  },
+  {
+    "name": "Post-Matric Scholarship for Scheduled Castes (SC) and Scheduled Tribes (ST) Students-Bihar",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Permanent resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Studying in higher classes after Matriculation",
+        "question": "Studying in higher classes after Matriculation?",
+        "data_field": "Educational qualification: (Studying in higher classes after Matriculation)"
+      },
+      {
+        "eligibility_text": "Annual family income not exceeding ₹3,00,000",
+        "question": "Annual family income not exceeding ₹3,00,000?",
+        "data_field": "Family Income Annual"
+      },
+      {
+        "eligibility_text": "Belong to SC or ST category",
+        "question": "Belong to SC or ST category?",
+        "data_field": "Belong to_Catogory(SC or ST)"
+      }
+    ]
+  },
+  {
+    "name": "Prak Pariksha Prashikshan Kendra",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Permanent resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Annual family income not exceeding ₹3,00,000",
+        "question": "Annual family income not exceeding ₹3,00,000?",
+        "data_field": "Family Income Annual"
+      },
+      {
+        "eligibility_text": "Meet age/edu criteria for specific competitive exam",
+        "question": "Meet age/edu criteria for specific competitive exam?",
+        "data_field": "Other - age and qualification"
+      },
+      {
+        "eligibility_text": "Belong to Backward Class (BC) or Extremely Backward Class (EBC)",
+        "question": "Belong to Backward Class (BC) or Extremely Backward Class (EBC)?",
+        "data_field": "Belong to_Backward Class (BC) or Extremely Backward Class (EBC)"
+      }
+    ]
+  },
+  {
+    "name": "Samekit Baal Vikas Chhtra Yojana: Dress for Pre-school Children",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Enrolled at an Anganwadi Centre for pre-school education",
+        "question": "Enrolled at an Anganwadi Centre for pre-school education?",
+        "data_field": "Enrolled in School / Institution (Anganwadi Centre)"
+      },
+      {
+        "eligibility_text": "Child aged between 3 and 6 years",
+        "question": "What is your age?",
+        "data_field": "Age"
+      },
+      {
+        "eligibility_text": "Resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      }
+    ]
+  },
+  {
+    "name": "Satat Jeevikoparjan Yojana (SJY)",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "No significant alternative livelihood sources",
+        "question": "No significant alternative livelihood sources?",
+        "data_field": "Other "
+      },
+      {
+        "eligibility_text": "Belong to socially/economically vulnerable groups (SC/ST)",
+        "question": "Belong to socially/economically vulnerable groups (SC/ST)?",
+        "data_field": "Belong to_Catogory(SC or ST)"
+      },
+      {
+        "eligibility_text": "Belong to ultra-poor household",
+        "question": "Belong to ultra-poor household?",
+        "data_field": "Belong to_ultra-poor household"
+      }
+    ]
+  },
+  {
+    "name": "Scheme for Adolescent Girls- Bihar",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Not currently attending school",
+        "question": "Not currently attending school?",
+        "data_field": "Educational qualification: (Not currently attending school)"
+      },
+      {
+        "eligibility_text": "Adolescent girl aged 11 to 14 years",
+        "question": "What is your age?",
+        "data_field": "Age"
+      }
+    ]
+  },
+  {
+    "name": "Supplementary Nutrition Programme- Bihar",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Children aged 6 months to 6 years",
+        "question": "What is your age?",
+        "data_field": "Age"
+      },
+      {
+        "eligibility_text": "Resident of Bihar",
+        "question": "Are you a resident of Bihar?",
+        "data_field": "state_bihar"
+      },
+      {
+        "eligibility_text": "Pregnant women and lactating mothers",
+        "question": "Pregnant women and lactating mothers?",
+        "data_field": "Pregnant woman or nursing/lactating mother "
+      },
+      {
+        "eligibility_text": "Enrolled in Anganwadi centers",
+        "question": "Enrolled in Anganwadi centers?",
+        "data_field": "Enrolled in School / Institution (Anganwadi Centre)"
+      }
+    ]
+  },
+  {
+    "name": "Talab Matsyiki Vishesh Sahayata Yojana (Anusuchit Jaati/Janajati/Ati Pichhada)",
+    "eligibility_criteria": [
+      {
+        "eligibility_text": "Pond size minimum 0.5 acre",
+        "question": "Pond size minimum 0.5 acre?",
+        "data_field": "Other - Pond size acres"
+      },
+      {
+        "eligibility_text": "Maximum 1 acre per family",
+        "question": "How many acres of land do you own?",
+        "data_field": "Other - Pond"
+      },
+      {
+        "eligibility_text": "Belong to SC, ST, or Most Backward Classes",
+        "question": "Belong to SC, ST, or Most Backward Classes?",
+        "data_field": "Belong to_SC, ST or Most Backward Class"
+      },
+      {
+        "eligibility_text": "Private or leased land available for pond construction",
+        "question": "Private or leased land available for pond construction?",
+        "data_field": "Other - Pond"
+      }
+    ]
+  }
+]

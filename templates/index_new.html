@@ -1,0 +1,169 @@
+{% extends 'base.html' %}
+
+{% block title %}Bihar Government Scheme Finder{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section text-center">
+    <div class="container">
+        <h1><i class="fas fa-landmark me-3"></i>Bihar Government Scheme Finder</h1>
+        <p class="lead mb-4">Find government schemes you're eligible for based on your profile!</p>
+        <p class="mb-4">Answer questions about yourself and discover welfare schemes, subsidies, and benefits available for you in Bihar.</p>
+        <a href="/find-schemes" class="btn btn-light btn-lg me-3">
+            <i class="fas fa-search me-2"></i>Find Schemes Now
+        </a>
+        <a href="/all-schemes" class="btn btn-outline-light btn-lg">
+            <i class="fas fa-list me-2"></i>Browse All Schemes
+        </a>
+    </div>
+</section>
+
+<!-- Statistics Section -->
+<section class="container mb-5">
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card stat-card">
+                <i class="fas fa-file-alt"></i>
+                <h3>{{ stats.total_schemes }}</h3>
+                <p class="text-muted mb-0">Total Schemes</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card stat-card">
+                <i class="fas fa-question-circle"></i>
+                <h3>{{ stats.total_questions }}</h3>
+                <p class="text-muted mb-0">Questions to Match</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card stat-card">
+                <i class="fas fa-layer-group"></i>
+                <h3>{{ stats.sections }}</h3>
+                <p class="text-muted mb-0">Categories</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="container mb-5">
+    <h2 class="text-center mb-5">How It Works</h2>
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card h-100 text-center p-4">
+                <div class="feature-icon">
+                    <i class="fas fa-user-edit"></i>
+                </div>
+                <h4>1. Fill Your Profile</h4>
+                <p class="text-muted">Answer comprehensive questions about your age, occupation, income, category, and more.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 text-center p-4">
+                <div class="feature-icon">
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <h4>2. Exact Matching</h4>
+                <p class="text-muted">Our system matches your profile against actual eligibility criteria from 106+ schemes.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 text-center p-4">
+                <div class="feature-icon">
+                    <i class="fas fa-clipboard-check"></i>
+                </div>
+                <h4>3. Get Results</h4>
+                <p class="text-muted">View schemes you are 100% eligible for with complete eligibility criteria details.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Scheme Types Section -->
+<section class="container mb-5">
+    <h2 class="text-center mb-5">Schemes Available For</h2>
+    <div class="row g-4">
+        <div class="col-md-3 col-6">
+            <div class="card text-center p-3">
+                <i class="fas fa-tractor fa-2x text-success mb-3"></i>
+                <h6>Farmers</h6>
+            </div>
+        </div>
+        <div class="col-md-3 col-6">
+            <div class="card text-center p-3">
+                <i class="fas fa-graduation-cap fa-2x text-primary mb-3"></i>
+                <h6>Students</h6>
+            </div>
+        </div>
+        <div class="col-md-3 col-6">
+            <div class="card text-center p-3">
+                <i class="fas fa-female fa-2x text-danger mb-3"></i>
+                <h6>Women</h6>
+            </div>
+        </div>
+        <div class="col-md-3 col-6">
+            <div class="card text-center p-3">
+                <i class="fas fa-hard-hat fa-2x text-warning mb-3"></i>
+                <h6>Workers</h6>
+            </div>
+        </div>
+        <div class="col-md-3 col-6">
+            <div class="card text-center p-3">
+                <i class="fas fa-wheelchair fa-2x text-info mb-3"></i>
+                <h6>Disabled (Divyangjan)</h6>
+            </div>
+        </div>
+        <div class="col-md-3 col-6">
+            <div class="card text-center p-3">
+                <i class="fas fa-store fa-2x text-secondary mb-3"></i>
+                <h6>Entrepreneurs</h6>
+            </div>
+        </div>
+        <div class="col-md-3 col-6">
+            <div class="card text-center p-3">
+                <i class="fas fa-fish fa-2x text-primary mb-3"></i>
+                <h6>Fishermen</h6>
+            </div>
+        </div>
+        <div class="col-md-3 col-6">
+            <div class="card text-center p-3">
+                <i class="fas fa-users fa-2x text-dark mb-3"></i>
+                <h6>SC/ST/OBC/EBC</h6>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="container mb-5">
+    <div class="card text-center p-5 bg-primary text-white">
+        <h2 class="mb-4">Ready to Find Your Eligible Schemes?</h2>
+        <p class="lead mb-4">Answer a few questions and discover government schemes you qualify for.</p>
+        <div>
+            <a href="/find-schemes" class="btn btn-light btn-lg">
+                <i class="fas fa-search me-2"></i>Start Now
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Data Source Info -->
+<section class="container mb-5">
+    <div class="card p-4 bg-light">
+        <div class="row align-items-center">
+            <div class="col-md-8">
+                <h5><i class="fas fa-database me-2 text-primary"></i>Data Source</h5>
+                <p class="mb-0 text-muted">
+                    This system uses official Bihar government scheme data with {{ stats.total_schemes }} schemes 
+                    and detailed eligibility criteria for accurate matching.
+                </p>
+            </div>
+            <div class="col-md-4 text-end">
+                <a href="/all-schemes" class="btn btn-outline-primary">
+                    <i class="fas fa-list me-1"></i>View All Schemes
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

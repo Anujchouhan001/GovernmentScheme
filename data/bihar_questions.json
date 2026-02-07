@@ -1,0 +1,566 @@
+[
+  {
+    "id": 1,
+    "question": "Annual family income ?",
+    "options": "Specify (actual in INR)",
+    "sub_questions": null
+  },
+  {
+    "id": 2,
+    "question": "Are you a resident of Bihar?",
+    "options": "Yes/ No",
+    "sub_questions": null
+  },
+  {
+    "id": 3,
+    "question": "Are you currently receiving any pension?",
+    "options": "Yes/ No",
+    "sub_questions": null
+  },
+  {
+    "id": 4,
+    "question": "Are you registered on the Direct Benefit Transfer (DBT) portal?",
+    "options": "Yes/ No",
+    "sub_questions": null
+  },
+  {
+    "id": 5,
+    "question": "Bank account?",
+    "options": "Yes/ No",
+    "sub_questions": null
+  },
+  {
+    "id": null,
+    "question": "Is this linked with aadhar",
+    "options": "Yes/ No",
+    "sub_questions": null
+  },
+  {
+    "id": 6,
+    "question": "Do you belong to a minority community?",
+    "options": "Yes/ No",
+    "sub_questions": null
+  },
+  {
+    "id": 7,
+    "question": "Do you have a disability?",
+    "options": "Yes/ No",
+    "sub_questions": null
+  },
+  {
+    "id": null,
+    "question": "Disability percentage ",
+    "options": "Specify Percentage ",
+    "sub_questions": null
+  },
+  {
+    "id": null,
+    "question": "Nature of disability",
+    "options": "Permanent Total Disability/ Permanent Partial Disability caused by illness or accident/ Other",
+    "sub_questions": null
+  },
+  {
+    "id": null,
+    "question": "Cause of disability",
+    "options": " Illness/ Accident /Since birth / other(Specify)",
+    "sub_questions": null
+  },
+  {
+    "id": null,
+    "question": "Type of disability",
+    "options": "Locomotor (difficulty in walking/movement)/Visual (blindness/low vision)/Hearing (hearing impairment)/Speech & Language disability/Other(Specify)",
+    "sub_questions": null
+  },
+  {
+    "id": 8,
+    "question": "Driving license?",
+    "options": "Yes/ No",
+    "sub_questions": null
+  },
+  {
+    "id": 9,
+    "question": "Has there been a death in the family ?",
+    "options": "Yes/ No",
+    "sub_questions": null
+  },
+  {
+    "id": null,
+    "question": "Cause of death ",
+    "options": "Natural death/ Accident/ Criminal incident/ Suicide/ Intoxication / poisoning/ Other (Specify)",
+    "sub_questions": null
+  },
+  {
+    "id": null,
+    "question": "Economic status of the deceased family",
+    "options": "Below Poverty Line (BPL)/ Poor (non-BPL)/ Above Poverty Line",
+    "sub_questions": null
+  },
+  {
+    "id": null,
+    "question": "Was the deceased registered with BBOCWWB?",
+    "options": "Yes/ No",
+    "sub_questions": null
+  },
+  {
+    "id": null,
+    "question": "What is your relationship with the deceased? ",
+    "options": "Legal heir/ Dependent family member/ Other (Specify)",
+    "sub_questions": null
+  },
+  {
+    "id": null,
+    "question": "What was the age of the deceased at the time of death?",
+    "options": "Specify (DOB)",
+    "sub_questions": null
+  },
+  {
+    "id": 10,
+    "question": "Do you have any medical condition?",
+    "options": "Yes/ No",
+    "sub_questions": null
+  },
+  {
+    "id": null,
+    "question": "Select from these",
+    "options": "Cancer/ Heart disease/ HIV / AIDS/ Leprosy/ Other serious or incurable disease(Specify)",
+    "sub_questions": null
+  },
+  {
+    "id": null,
+    "question": "Do you have any child who is orphaned / destitute or affected by HIV/AIDS or leprosy?",
+    "options": "Yes/ No",
+    "sub_questions": null
+  },
+  {
+    "id": 11,
+    "question": "How many acres of land do you own?",
+    "options": "Specify (in acres)",
+    "sub_questions": null
+  },
+  {
+    "id": null,
+    "question": "Do you own a house?",
+    "options": "Yes/ No ",
+    "sub_questions": null
+  },
+  {
+    "id": 12,
+    "question": "How many children do you have?",
+    "options": "Specify (in numbers)",
+    "sub_questions": null
+  },
+  {
+    "id": null,
+    "question": "Number of girl  children",
+    "options": "1/2/3/More than 3",
+    "sub_questions": "If they select 2 then open 2 boxes for specift DOB of them "
+  },
+  {
+    "id": null,
+    "question": "Where is the currently studying?",
+    "options": "Anganwadi centre (pre-school),Government school,Government-recognized private school,Government secondary school,Government-recognized secondary school,Government college / institute,Government-recognized college / institute/ other(Specify)",
+    "sub_questions": null
+  },
+  {
+    "id": 13,
+    "question": "occupation",
+    "options": null,
+    "sub_questions": null
+  },
+  {
+    "id": null,
+    "question": "Business",
+    "options": null,
+    "sub_questions": null
+  },
+  {
+    "id": null,
+    "question": "Business type -",
+    "options": "Proprietorship/ Partnership/ Company/ Other (Specify)",
+    "sub_questions": null
+  },
+  {
+    "id": null,
+    "question": "Business Startup",
+    "options": null,
+    "sub_questions": null
+  },
+  {
+    "id": null,
+    "question": "Registered in bihar?",
+    "options": "Yes/ No",
+    "sub_questions": null
+  },
+  {
+    "id": null,
+    "question": "How many years ago was the entity incorporated?",
+    "options": "Specify (Years)",
+    "sub_questions": null
+  },
+  {
+    "id": null,
+    "question": "What is the annual turnover of the entity?",
+    "options": "Specify ",
+    "sub_questions": null
+  },
+  {
+    "id": null,
+    "question": "Does your startup work towards innovation or a scalable business model?",
+    "options": "Yes/ No",
+    "sub_questions": null
+  },
+  {
+    "id": null,
+    "question": "Was the entity formed by splitting up or reconstructing an existing business?",
+    "options": "Yes/ No",
+    "sub_questions": null
+  },
+  {
+    "id": null,
+    "question": "Construction worker",
+    "options": null,
+    "sub_questions": null
+  },
+  {
+    "id": null,
+    "question": "Are you registered with BBOCWWB? ",
+    "options": "Yes/ No",
+    "sub_questions": null
+  },
+  {
+    "id": null,
+    "question": "Is your membership active at present? ",
+    "options": "Yes/ No",
+    "sub_questions": null
+  },
+  {
+    "id": null,
+    "question": "How many years of continuous membership do you have?",
+    "options": "Specify (Years)",
+    "sub_questions": null
+  },
+  {
+    "id": null,
+    "question": "Are you currently receiving any other government or social-security pension?",
+    "options": "Yes/ No",
+    "sub_questions": null
+  },
+  {
+    "id": null,
+    "question": "Skill upgradation training completed?",
+    "options": "Yes/ No",
+    "sub_questions": null
+  },
+  {
+    "id": null,
+    "question": "employment ",
+    "options": null,
+    "sub_questions": null
+  },
+  {
+    "id": null,
+    "question": "employment  type",
+    "options": "Government or PSU employee/ Semi-government employee/ Private sector employee/ Self-employed/ retired government officer/ other(specify)",
+    "sub_questions": null
+  },
+  {
+    "id": null,
+    "question": "Are you currently receiving any other government or social-security pension?",
+    "options": "Yes/ No",
+    "sub_questions": null
+  },
+  {
+    "id": null,
+    "question": "Farmer",
+    "options": null,
+    "sub_questions": null
+  },
+  {
+    "id": null,
+    "question": "land in Bihar?",
+    "options": "Yes/ No or Specify (place of land)",
+    "sub_questions": null
+  },
+  {
+    "id": null,
+    "question": "How many acres of land do you cultivate?",
+    "options": "Specify (acres)",
+    "sub_questions": null
+  },
+  {
+    "id": null,
+    "question": "Are you registered on DBT portal as a farmer?",
+    "options": "Yes/ No",
+    "sub_questions": null
+  },
+  {
+    "id": null,
+    "question": "Crop damage due to natural calamities? And percentage of crop damage?",
+    "options": "Yes/ No (if yes, specify percentage of damage)",
+    "sub_questions": null
+  },
+  {
+    "id": null,
+    "question": "Do  you wish to apply for a new borewell at your land/site? ",
+    "options": "Yes/ No",
+    "sub_questions": "If Yes then,Is there already a borewell at this site? Have you received any grant earlier for a borewell? What is the proposed depth of the borewell (in metres)?"
+  },
+  {
+    "id": null,
+    "question": "Interested in planting coconut saplings?",
+    "options": "Yes/ No",
+    "sub_questions": null
+  },
+  {
+    "id": null,
+    "question": "Type of farming ",
+    "options": "General farming / Fish farming / Milch cattle/Other(Specify)",
+    "sub_questions": "If select Milch cattle then,Are you a member of a Milk Producer Cooperative Committee? Are your cattle healthy and certified by a veterinary doctor?"
+  },
+  {
+    "id": null,
+    "question": "Journalist or media representative",
+    "options": null,
+    "sub_questions": null
+  },
+  {
+    "id": null,
+    "question": "Work experience (Years)",
+    "options": "Specify (Years)",
+    "sub_questions": null
+  },
+  {
+    "id": null,
+    "question": "Student",
+    "options": null,
+    "sub_questions": null
+  },
+  {
+    "id": null,
+    "question": "Where is the currently enrolled / studying?",
+    "options": "Anganwadi centre (pre-school)/ Government school/ Government-recognized private school/ Government secondary school/ Government-recognized secondary school/ Government college/ Government-recognized college / institute/ other(Specify)",
+    "sub_questions": null
+  },
+  {
+    "id": null,
+    "question": "Unorganised sector worker / craftsman",
+    "options": null,
+    "sub_questions": null
+  },
+  {
+    "id": null,
+    "question": "Suffered accidental injury?",
+    "options": "Yes/ No",
+    "sub_questions": null
+  },
+  {
+    "id": null,
+    "question": "Suffered total permanent disability ?",
+    "options": "Yes/ No",
+    "sub_questions": null
+  },
+  {
+    "id": null,
+    "question": "Other(Specify)",
+    "options": "Specify",
+    "sub_questions": null
+  },
+  {
+    "id": 14,
+    "question": "Possess Aadhaar number?",
+    "options": "Yes/ No",
+    "sub_questions": null
+  },
+  {
+    "id": 15,
+    "question": "What is your age?",
+    "options": "Specify (Numbers)",
+    "sub_questions": null
+  },
+  {
+    "id": 16,
+    "question": "What is your current / highest education level?",
+    "options": "class- 6,7,8,9,10,11,12/ graduated/  ITI/  Polytechnic Diploma/ Passed UPSC preliminary/ Passed BPSC preliminary/ Passed other competitive exam preliminary/ passed intermediate examination/ other(specify)",
+    "sub_questions": "If select passed intermediate examination then passing year ?"
+  },
+  {
+    "id": null,
+    "question": "Are you Passed from Bihar School Examination Board or Bihar Madrasa Education Board? ",
+    "options": "Yes/ No",
+    "sub_questions": null
+  },
+  {
+    "id": null,
+    "question": "Any Training ?",
+    "options": "any skill development training(Specify)/  training in language communication and basic computer knowledge/ other (Specify)",
+    "sub_questions": null
+  },
+  {
+    "id": null,
+    "question": "Marks optained in 10th and 12th",
+    "options": "Specify(percentage)",
+    "sub_questions": null
+  },
+  {
+    "id": 17,
+    "question": "What is your current marital status?",
+    "options": "Unmarried/ Married/ Divorced/ Widowed/ Abandoned or separated/ remarried",
+    "sub_questions": null
+  },
+  {
+    "id": null,
+    "question": "Is marriage is inter-caste?",
+    "options": "Yes/ No",
+    "sub_questions": null
+  },
+  {
+    "id": null,
+    "question": "Is marriage registered?",
+    "options": "Yes/ No",
+    "sub_questions": null
+  },
+  {
+    "id": null,
+    "question": "Is  husband mentally handicapped",
+    "options": "Yes/ No",
+    "sub_questions": null
+  },
+  {
+    "id": 18,
+    "question": "What is your economic status?",
+    "options": "Ultra-poor / below poverty line (BPL) / Above Poverty Line (APL)",
+    "sub_questions": null
+  },
+  {
+    "id": 19,
+    "question": "What is your gender?",
+    "options": "Male/Female/Other",
+    "sub_questions": null
+  },
+  {
+    "id": null,
+    "question": "Is birth is registered?",
+    "options": "Yes/ No",
+    "sub_questions": null
+  },
+  {
+    "id": 20,
+    "question": "What is your social category?",
+    "options": "SC / ST / OBC / BC / EBC / General/other",
+    "sub_questions": null
+  },
+  {
+    "id": 21,
+    "question": "Where do you currently live?",
+    "options": "Government hostel/ Welfare hostel (SC/ST / OBC\u2013EBC / Minority department)/ Private hostel / rented accommodation/ Own house,Other(Specify)",
+    "sub_questions": null
+  },
+  {
+    "id": null,
+    "question": "Do you live in a rural or urban area in Bihar?",
+    "options": "Rular/ Urban",
+    "sub_questions": null
+  },
+  {
+    "id": null,
+    "question": "House part of a cluster housing scheme built before January 1996",
+    "options": "Yes/ No",
+    "sub_questions": "If Yes then, House is in a dilapidated condition?"
+  },
+  {
+    "id": null,
+    "question": "Live in a village where government land for housing is not available",
+    "options": "Yes/ No",
+    "sub_questions": null
+  },
+  {
+    "id": 22,
+    "question": "Which block do you currently live in?",
+    "options": "Specify (Block)",
+    "sub_questions": null
+  },
+  {
+    "id": 23,
+    "question": "Which district do you currently live in?",
+    "options": "Specify (district)",
+    "sub_questions": null
+  },
+  {
+    "id": 24,
+    "question": "Any currently pregnant or a lactating/nursing (breastfeeding) mother?",
+    "options": "Yes/ No",
+    "sub_questions": null
+  },
+  {
+    "id": null,
+    "question": "Willing to undergo institutional delivery?",
+    "options": "Yes/ No",
+    "sub_questions": null
+  },
+  {
+    "id": 25,
+    "question": "Do you own or lease land for fish pond construction?",
+    "options": "Yes/ No",
+    "sub_questions": "If Yes then ask other questions"
+  },
+  {
+    "id": null,
+    "question": "Active member of Block Level Fishermen Cooperation Committees?",
+    "options": "Yes/ No",
+    "sub_questions": null
+  },
+  {
+    "id": null,
+    "question": "Have you completed training under any departmental scheme?",
+    "options": "Yes/ No",
+    "sub_questions": null
+  },
+  {
+    "id": null,
+    "question": "Have you already received any benefit earlier?",
+    "options": "Yes/ No",
+    "sub_questions": null
+  },
+  {
+    "id": null,
+    "question": "Pond not renovated under govt scheme in last 5 years?",
+    "options": "Yes/ No",
+    "sub_questions": null
+  },
+  {
+    "id": null,
+    "question": "What is the size of the pond ?",
+    "options": "Specify (in acres)",
+    "sub_questions": null
+  },
+  {
+    "id": null,
+    "question": "Have you installed a concrete board on the pond?",
+    "options": "Yes/ No",
+    "sub_questions": null
+  },
+  {
+    "id": 26,
+    "question": "Are you currently receiving any other government or social-security pension?",
+    "options": "Yes/ No",
+    "sub_questions": null
+  },
+  {
+    "id": 27,
+    "question": "Does your household already have a piped water supply connection?",
+    "options": "Yes/ No",
+    "sub_questions": null
+  },
+  {
+    "id": null,
+    "question": "Are you willing to contribute towards the operation and maintenance of the water supply?",
+    "options": "Yes/ No",
+    "sub_questions": null
+  },
+  {
+    "id": 28,
+    "question": "Listed as a beneficiary under PMAY-G?",
+    "options": "Yes/ No",
+    "sub_questions": null
+  }
+]

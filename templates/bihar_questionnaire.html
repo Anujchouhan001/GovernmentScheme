@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bihar Scheme Finder - Questionnaire</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px 15px;
+        }
+
+        /* ---- Header ---- */
+        .header {
+            text-align: center;
+            color: #fff;
+            margin-bottom: 30px;
+        }
+        .header h1 { font-size: 2.2rem; text-shadow: 2px 2px 6px rgba(0,0,0,.3); }
+        .header p  { font-size: 1rem; opacity: .85; margin-top: 6px; }
+
+        /* ---- Card ---- */
+        .card {
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,.15);
+            width: 100%;
+            max-width: 700px;
+            padding: 40px 36px;
+            animation: fadeUp .4s ease;
+        }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ---- Progress ---- */
+        .progress-wrap { margin-bottom: 28px; }
+        .progress-info {
+            display: flex;
+            justify-content: space-between;
+            font-size: .85rem;
+            color: #666;
+            margin-bottom: 6px;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: #e9ecef;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 10px;
+            transition: width .5s ease;
+        }
+
+        /* ---- Question badge ---- */
+        .q-badge {
+            display: inline-block;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: .75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+            margin-bottom: 14px;
+        }
+        .q-badge.orange { background: #fff3e0; color: #e65100; }
+        .q-badge.black  { background: #f3e5f5; color: #6a1b9a; }
+
+        /* ---- Question text ---- */
+        .q-text {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 24px;
+            line-height: 1.5;
+        }
+
+        /* ---- Inputs ---- */
+        .options-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 28px;
+        }
+        .option-btn {
+            flex: 1 1 calc(50% - 12px);
+            min-width: 120px;
+            padding: 14px 18px;
+            border: 2px solid #dee2e6;
+            border-radius: 12px;
+            background: #fff;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all .2s;
+            text-align: center;
+        }
+        .option-btn:hover { border-color: #667eea; background: #f0f1ff; }
+        .option-btn.selected {
+            border-color: #667eea;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: #fff;
+            font-weight: 600;
+        }
+
+        /* Select dropdown */
+        .select-wrap { margin-bottom: 28px; }
+        .select-wrap select {
+            width: 100%;
+            padding: 14px 16px;
+            font-size: 1rem;
+            border: 2px solid #dee2e6;
+            border-radius: 12px;
+            background: #fff;
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23667eea' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            cursor: pointer;
+            transition: border-color .2s;
+        }
+        .select-wrap select:focus { border-color: #667eea; outline: none; }
+
+        /* Number / text input */
+        .input-wrap { margin-bottom: 28px; }
+        .input-wrap input {
+            width: 100%;
+            padding: 14px 16px;
+            font-size: 1rem;
+            border: 2px solid #dee2e6;
+            border-radius: 12px;
+            transition: border-color .2s;
+        }
+        .input-wrap input:focus { border-color: #667eea; outline: none; }
+
+        /* ---- Buttons ---- */
+        .btn-row {
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+        }
+        .btn {
+            padding: 14px 32px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all .2s;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: #fff;
+        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(102,126,234,.4); }
+        .btn-primary:disabled { opacity: .5; cursor: not-allowed; transform: none; box-shadow: none; }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #dee2e6;
+            color: #666;
+        }
+        .btn-outline:hover { border-color: #667eea; color: #667eea; }
+
+        /* ---- Complete screen ---- */
+        .complete-screen { text-align: center; }
+        .complete-screen .icon { font-size: 4rem; margin-bottom: 16px; }
+        .complete-screen h2 { font-size: 1.6rem; margin-bottom: 10px; color: #333; }
+        .complete-screen p  { color: #666; margin-bottom: 24px; }
+
+        /* ---- Loading ---- */
+        .spinner {
+            width: 40px; height: 40px;
+            border: 4px solid #e9ecef;
+            border-top-color: #667eea;
+            border-radius: 50%;
+            animation: spin .7s linear infinite;
+            margin: 60px auto;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* ---- Error ---- */
+        .error-msg {
+            background: #fce4ec;
+            color: #c62828;
+            padding: 12px 18px;
+            border-radius: 10px;
+            margin-bottom: 18px;
+            display: none;
+        }
+
+        /* ---- Responsive ---- */
+        @media (max-width: 520px) {
+            .card { padding: 28px 20px; }
+            .q-text { font-size: 1.1rem; }
+            .option-btn { flex: 1 1 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>🏛️ Bihar Scheme Finder</h1>
+    <p>Answer a few questions to discover government schemes you're eligible for</p>
+</div>
+
+<div class="card" id="questionCard">
+    <div class="spinner" id="loader"></div>
+</div>
+
+<script>
+/* ================================================================
+   Bihar Questionnaire – Client-side logic
+   ================================================================ */
+const API = {
+    getQuestion : () => fetch('/api/get_question').then(r => r.json()),
+    submitAnswer: (qid, answer) => fetch('/api/submit_answer', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({ question_id: qid, answer: answer })
+    }).then(r => r.json()),
+    reset: () => fetch('/api/reset_questionnaire', { method: 'POST' }).then(r => r.json())
+};
+
+let selectedAnswer = null;
+
+/* ---------- Render completed state ---------- */
+function renderComplete(progress) {
+    const card = document.getElementById('questionCard');
+    card.innerHTML = `
+        <div class="complete-screen">
+            <div class="icon">🎉</div>
+            <h2>Questionnaire Complete!</h2>
+            <p>We've analysed your answers against all Bihar government schemes.</p>
+            <div class="btn-row" style="justify-content:center">
+                <a href="/results" class="btn btn-primary" style="text-decoration:none">View Eligible Schemes →</a>
+                <button class="btn btn-outline" onclick="resetQuestionnaire()">🔄 Start Over</button>
+            </div>
+        </div>`;
+}
+
+/* ---------- Load & render current question ---------- */
+async function loadQuestion() {
+    const card = document.getElementById('questionCard');
+    card.innerHTML = '<div class="spinner"></div>';
+
+    try {
+        const data = await API.getQuestion();
+
+        if (data.status === 'complete') {
+            renderComplete(data.progress);
+            return;
+        }
+        if (data.status === 'error') {
+            card.innerHTML = '<div class="error-msg" style="display:block">' + data.message + '</div>';
+            return;
+        }
+
+        const q = data.question;
+        const p = data.progress;
+        selectedAnswer = null;
+
+        let html = '';
+
+        /* ---- Progress bar ---- */
+        html += `
+        <div class="progress-wrap">
+            <div class="progress-info">
+                <span>Question ${p.completed_questions + 1} of ~${p.total_questions}</span>
+                <span>${Math.min(Math.round(p.percentage), 100)}%</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width:${Math.min(p.percentage, 100)}%"></div>
+            </div>
+        </div>`;
+
+        /* ---- Badge ---- */
+        const badgeCls = q.question_type === 'orange' ? 'orange' : 'black';
+        const badgeTxt = q.question_type === 'orange' ? 'Main Question' : 'Follow-up';
+        html += '<span class="q-badge ' + badgeCls + '">' + badgeTxt + '</span>';
+
+        /* ---- Question text ---- */
+        html += '<div class="q-text">' + q.text + '</div>';
+
+        /* ---- Error placeholder ---- */
+        html += '<div class="error-msg" id="errMsg"></div>';
+
+        /* ---- Input area ---- */
+        if (q.input_type === 'yes_no') {
+            html += `
+            <div class="options-grid">
+                <button class="option-btn" onclick="pickOption(this,'Yes')">✅ Yes</button>
+                <button class="option-btn" onclick="pickOption(this,'No')">❌ No</button>
+            </div>`;
+
+        } else if (q.input_type === 'select' && q.options && q.options.length > 0) {
+            if (q.options.length <= 8) {
+                /* Short list → button grid */
+                html += '<div class="options-grid">';
+                q.options.forEach(function(opt) {
+                    const escaped = opt.replace(/'/g, "\\'");
+                    html += '<button class="option-btn" onclick="pickOption(this,\'' + escaped + '\')">' + opt + '</button>';
+                });
+                html += '</div>';
+            } else {
+                /* Long list (districts, etc.) → dropdown */
+                html += '<div class="select-wrap"><select id="selectInput" onchange="selectedAnswer=this.value">';
+                html += '<option value="">-- Select an option --</option>';
+                q.options.forEach(function(opt) {
+                    html += '<option value="' + opt + '">' + opt + '</option>';
+                });
+                html += '</select></div>';
+            }
+
+        } else if (q.input_type === 'number') {
+            html += `<div class="input-wrap">
+                <input type="number" id="numInput" placeholder="Enter a number"
+                       onkeydown="if(event.key==='Enter')submitCurrent()">
+            </div>`;
+
+        } else {
+            /* text */
+            html += `<div class="input-wrap">
+                <input type="text" id="textInput" placeholder="Type your answer"
+                       onkeydown="if(event.key==='Enter')submitCurrent()">
+            </div>`;
+        }
+
+        /* ---- Action buttons ---- */
+        html += `
+        <div class="btn-row">
+            <button class="btn btn-outline" onclick="resetQuestionnaire()">🔄 Start Over</button>
+            <button class="btn btn-primary" id="nextBtn" onclick="submitCurrent()">Next →</button>
+        </div>`;
+
+        card.innerHTML = html;
+        card.dataset.qid = q.id;
+        card.dataset.inputType = q.input_type;
+
+    } catch (err) {
+        card.innerHTML = '<div class="error-msg" style="display:block">Failed to load question. Please refresh.<br>' + err + '</div>';
+    }
+}
+
+/* ---------- Pick a button option ---------- */
+function pickOption(btn, value) {
+    document.querySelectorAll('.option-btn').forEach(function(b) { b.classList.remove('selected'); });
+    btn.classList.add('selected');
+    selectedAnswer = value;
+}
+
+/* ---------- Submit current answer ---------- */
+async function submitCurrent() {
+    const card  = document.getElementById('questionCard');
+    const qid   = card.dataset.qid;
+    const itype = card.dataset.inputType;
+
+    let answer = selectedAnswer;
+
+    if (!answer) {
+        if (itype === 'number') {
+            const inp = document.getElementById('numInput');
+            answer = inp ? inp.value.trim() : '';
+        } else if (itype === 'select') {
+            const sel = document.getElementById('selectInput');
+            answer = sel ? sel.value : '';
+        } else if (itype === 'text') {
+            const inp = document.getElementById('textInput');
+            answer = inp ? inp.value.trim() : '';
+        }
+    }
+
+    if (!answer && answer !== 0 && answer !== '0') {
+        showError('Please provide an answer before continuing.');
+        return;
+    }
+
+    const nextBtn = document.getElementById('nextBtn');
+    if (nextBtn) { nextBtn.disabled = true; nextBtn.textContent = 'Saving…'; }
+
+    try {
+        const res = await API.submitAnswer(qid, answer);
+
+        if (res.status === 'complete') {
+            window.location.href = '/results';
+            return;
+        }
+        if (res.status === 'not_bihar') {
+            showBiharPopup(res.message);
+            if (nextBtn) { nextBtn.disabled = false; nextBtn.textContent = 'Next →'; }
+            return;
+        }
+        if (res.status === 'error') {
+            showError(res.message);
+            if (nextBtn) { nextBtn.disabled = false; nextBtn.textContent = 'Next →'; }
+            return;
+        }
+
+        loadQuestion();
+
+    } catch (err) {
+        showError('Network error. Please try again.');
+        if (nextBtn) { nextBtn.disabled = false; nextBtn.textContent = 'Next →'; }
+    }
+}
+
+/* ---------- Reset questionnaire ---------- */
+async function resetQuestionnaire() {
+    if (!confirm('Start over? All your answers will be cleared.')) return;
+    await API.reset();
+    loadQuestion();
+}
+
+/* ---------- Helpers ---------- */
+function showError(msg) {
+    const el = document.getElementById('errMsg');
+    if (el) { el.textContent = msg; el.style.display = 'block'; }
+}
+
+/* ---------- Bihar-only popup ---------- */
+function showBiharPopup(msg) {
+    /* Remove existing popup if any */
+    const existing = document.getElementById('biharPopupOverlay');
+    if (existing) existing.remove();
+
+    const overlay = document.createElement('div');
+    overlay.id = 'biharPopupOverlay';
+    overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;z-index:9999;animation:fadeIn .3s ease';
+
+    overlay.innerHTML = `
+        <div style="background:#fff;border-radius:20px;padding:40px 36px;max-width:460px;width:90%;text-align:center;box-shadow:0 20px 50px rgba(0,0,0,.25);animation:fadeUp .35s ease">
+            <div style="font-size:3.5rem;margin-bottom:12px">🚫</div>
+            <h2 style="font-size:1.4rem;color:#c62828;margin-bottom:12px">Bihar Residents Only</h2>
+            <p style="color:#555;line-height:1.6;margin-bottom:24px">${msg}</p>
+            <button onclick="closeBiharPopup()" style="padding:12px 32px;border:none;border-radius:12px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;font-size:1rem;font-weight:600;cursor:pointer;transition:all .2s">OK, Go Back</button>
+        </div>`;
+
+    document.body.appendChild(overlay);
+}
+
+function closeBiharPopup() {
+    const overlay = document.getElementById('biharPopupOverlay');
+    if (overlay) overlay.remove();
+    /* Deselect the "No" button so user can pick "Yes" */
+    document.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+    selectedAnswer = null;
+}
+
+/* ---------- Boot ---------- */
+loadQuestion();
+</script>
+</body>
+</html>
+

@@ -1,0 +1,7 @@
+# Required for Web Application
+flask>=2.3.0
+gunicorn>=21.0.0
+
+# For Excel data processing
+pandas>=1.3.0
+openpyxl>=3.0.9
