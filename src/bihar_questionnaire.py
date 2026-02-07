@@ -5,6 +5,7 @@ Only eligible schemes (100% match) are shown to users
 """
 
 import json
+import os
 from typing import Dict, List, Any, Optional
 from dataclasses import dataclass, field
 import pandas as pd
@@ -54,7 +55,8 @@ class BiharQuestionnaire:
         """Load all questions from Bihar Excel data"""
         try:
             # Read the Excel file
-            file_path = "c:\\Users\\canuj\\OneDrive\\Desktop\\SchemePy\\data\\schemes_bihar.xlsx"
+            base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+            file_path = os.path.join(base_dir, 'data', 'schemes_bihar.xlsx')
             df = pd.read_excel(file_path, sheet_name='final questions')
             
             all_questions = []
@@ -315,7 +317,8 @@ class BiharQuestionnaire:
         """
         import re
         try:
-            csv_path = "c:\\Users\\canuj\\OneDrive\\Desktop\\SchemePy\\data\\schemes_criteria.csv"
+            base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+            csv_path = os.path.join(base_dir, 'data', 'schemes_criteria.csv')
             df = pd.read_csv(csv_path)
             
             for _, row in df.iterrows():
