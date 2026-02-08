@@ -6,8 +6,10 @@ Only eligible schemes (100% match) are shown to users
 
 import json
 import os
+import re
 from typing import Dict, List, Any, Optional
 from dataclasses import dataclass, field
+from datetime import datetime
 import pandas as pd
 
 
@@ -48,6 +50,7 @@ class BiharQuestionnaire:
         self.schemes: List[BiharScheme] = []
         self.user_responses: Dict[str, Any] = {}
         self.current_question_index = 0
+        self.question_history: List[tuple] = []  # Stack of (index, question_id) for back navigation
         self._load_questions()
         self._load_schemes()
     
@@ -89,14 +92,38 @@ class BiharQuestionnaire:
                     options = []
                     
                     if options_text and options_text != 'nan':
-                        if "Yes/ No" in options_text:
+                        opt_stripped = options_text.strip()
+                        opt_lower = options_text.lower()
+                        
+                        # 1. Yes/No pattern (even with extra text like "Yes/ No (if yes, specify...)")
+                        if re.match(r'^Yes\s*/\s*No\b', opt_stripped):
                             input_type = "yes_no"
                             options = ["Yes", "No"]
-                        elif "Specify" in options_text and ("actual in INR" in options_text or "in acres" in options_text or "Years" in options_text or "Numbers" in options_text or "percentage" in options_text or "Percentage" in options_text):
-                            input_type = "number"
-                        elif "/" in options_text and "Specify" not in options_text:
-                            input_type = "select"
-                            options = [opt.strip() for opt in options_text.split('/')]
+                        # 2. DOB / date of birth → date picker
+                        elif 'DOB' in options_text or 'date of birth' in opt_lower:
+                            input_type = "date"
+                        # 3. Pure "Specify" with no slash-separated choices → number or text
+                        elif opt_stripped.startswith("Specify") and '/' not in options_text:
+                            if any(kw in opt_lower for kw in ['inr', 'in acres', 'years', 'numbers', 'percentage', 'acres']):
+                                input_type = "number"
+                            else:
+                                input_type = "text"
+                        # 4. Slash-separated options (including those with "Other(Specify)")
+                        elif '/' in options_text:
+                            parts = [p.strip() for p in options_text.split('/') if p.strip()]
+                            if len(parts) >= 2:
+                                input_type = "select"
+                                options = parts
+                            else:
+                                input_type = "text"
+                        # 5. Comma-separated options (3+ items)
+                        elif ',' in options_text:
+                            parts = [p.strip() for p in options_text.split(',') if p.strip()]
+                            if len(parts) >= 3:
+                                input_type = "select"
+                                options = parts
+                            else:
+                                input_type = "text"
                         else:
                             input_type = "text"
                     
@@ -124,6 +151,9 @@ class BiharQuestionnaire:
             
             # Set Bihar district options for Q23 and block for Q22
             self._set_district_and_block_options()
+            
+            # Fix dropdown options for questions with complex option text
+            self._fix_question_options()
             
             print(f"Loaded {len(self.questions)} questions from Excel file")
             
@@ -244,6 +274,144 @@ class BiharQuestionnaire:
                 q.options = bihar_districts
                 print(f"Set Q23 with {len(bihar_districts)} Bihar districts")
                 break
+
+    def _fix_question_options(self):
+        """Post-process questions to fix dropdown options that weren't properly parsed.
+        Handles edge cases like options containing slashes (HIV/AIDS), comma-separated options, etc."""
+        
+        # Map of (partial question text match → corrected input_type, options)
+        text_fixes = [
+            # Disability sub-questions
+            ('nature of disability', 'select', [
+                'Permanent Total Disability',
+                'Permanent Partial Disability caused by illness or accident',
+                'Other'
+            ]),
+            ('cause of disability', 'select', [
+                'Illness', 'Accident', 'Since birth', 'Other'
+            ]),
+            ('type of disability', 'select', [
+                'Locomotor (difficulty in walking/movement)',
+                'Visual (blindness/low vision)',
+                'Hearing (hearing impairment)',
+                'Speech & Language disability',
+                'Other'
+            ]),
+            # Death sub-questions
+            ('cause of death', 'select', [
+                'Natural death', 'Accident', 'Criminal incident',
+                'Suicide', 'Intoxication/poisoning', 'Other'
+            ]),
+            ('economic status of the deceased', 'select', [
+                'Below Poverty Line (BPL)', 'Poor (non-BPL)', 'Above Poverty Line'
+            ]),
+            ('relationship with the deceased', 'select', [
+                'Legal heir', 'Dependent family member', 'Other'
+            ]),
+            ('age of the deceased at the time of death', 'date', []),
+            # Medical condition sub-question
+            ('select from these', 'select', [
+                'Cancer', 'Heart disease', 'HIV/AIDS', 'Leprosy',
+                'Other serious or incurable disease'
+            ]),
+            # Girl children count
+            ('number of girl', 'select', [
+                '0', '1', '2', '3', 'More than 3'
+            ]),
+            # Where currently studying (Q12 sub)
+            ('where is the currently studying', 'select', [
+                'Anganwadi centre (pre-school)', 'Government school',
+                'Government-recognized private school', 'Government secondary school',
+                'Government-recognized secondary school',
+                'Government college/institute',
+                'Government-recognized college/institute', 'Other'
+            ]),
+            # Business type (Q13 sub)
+            ('business type', 'select', [
+                'Proprietorship', 'Partnership', 'Company', 'Other'
+            ]),
+            # Employment type (Q13 sub)
+            ('employment type', 'select', [
+                'Government or PSU employee', 'Semi-government employee',
+                'Private sector employee', 'Self-employed',
+                'Retired government officer', 'Other'
+            ]),
+            # Type of farming (Q13 sub)
+            ('type of farming', 'select', [
+                'General farming', 'Fish farming', 'Milch cattle', 'Other'
+            ]),
+            # Where enrolled/studying (Student under Q13)
+            ('where is the currently enrolled', 'select', [
+                'Anganwadi centre (pre-school)', 'Government school',
+                'Government-recognized private school', 'Government secondary school',
+                'Government-recognized secondary school',
+                'Government college/institute',
+                'Government-recognized college/institute', 'Other'
+            ]),
+            # Training (Q16 sub)
+            ('any training', 'select', [
+                'Skill development training',
+                'Training in language communication and basic computer knowledge',
+                'No training', 'Other'
+            ]),
+            # Rural/Urban
+            ('rural or urban', 'select', ['Rural', 'Urban']),
+            # Where do you currently live (Q21)
+            ('where do you currently live', 'select', [
+                'Government hostel',
+                'Welfare hostel (SC/ST/OBC-EBC/Minority department)',
+                'Private hostel/rented accommodation',
+                'Own house', 'Other'
+            ]),
+            # Crop damage
+            ('crop damage due to natural calamities', 'yes_no', ['Yes', 'No']),
+            # Land in Bihar
+            ('land in bihar', 'yes_no', ['Yes', 'No']),
+        ]
+        
+        fixed_count = 0
+        for q in self.questions:
+            # Normalize text: collapse whitespace for matching
+            text_lower = ' '.join(q.text.strip().lower().split())
+            
+            # Q15: Age → Date of birth picker
+            if q.id == 'q_15':
+                q.input_type = 'date'
+                q.text = 'What is your date of birth?'
+                q.options = []
+                fixed_count += 1
+                continue
+            
+            # Q16: Education level
+            if q.id == 'q_16':
+                q.input_type = 'select'
+                q.options = [
+                    'Class 6', 'Class 7', 'Class 8', 'Class 9', 'Class 10',
+                    'Class 11', 'Class 12', 'Graduated', 'ITI',
+                    'Polytechnic Diploma', 'Passed UPSC preliminary',
+                    'Passed BPSC preliminary',
+                    'Passed other competitive exam preliminary',
+                    'Passed intermediate examination', 'Other'
+                ]
+                fixed_count += 1
+                continue
+            
+            # Q18: Economic status
+            if q.id == 'q_18':
+                q.input_type = 'select'
+                q.options = ['Ultra-poor', 'Below Poverty Line (BPL)', 'Above Poverty Line (APL)']
+                fixed_count += 1
+                continue
+            
+            # Apply fixes by matching question text
+            for match_text, fix_type, fix_options in text_fixes:
+                if match_text in text_lower:
+                    q.input_type = fix_type
+                    q.options = fix_options
+                    fixed_count += 1
+                    break
+        
+        print(f"Fixed dropdown options for {fixed_count} questions")
 
     def _reorder_questions(self):
         """Reorder questions:
@@ -511,16 +679,17 @@ class BiharQuestionnaire:
         # ===== Q20: Social Category =====
         if re.search(r'scheduled caste|scheduled tribe|\bsc\b|\bst\b|\bobc\b|\bbc\b|\bebc\b|backward class|extremely backward|general category', c):
             accepted = []
-            cat_map = {
-                'scheduled caste': 'SC', 'sc': 'SC',
-                'scheduled tribe': 'ST', 'st': 'ST',
-                'obc': 'OBC', 'other backward': 'OBC',
-                'extremely backward': 'EBC', 'ebc': 'EBC', 'ati pichhada': 'EBC',
-                'backward class': 'BC', 'bc': 'BC',
-                'general': 'General',
-            }
-            for key, val in cat_map.items():
-                if key in c and val not in accepted:
+            # Use word-boundary regex to avoid false matches (e.g., 'bc' in 'bbocwwb')
+            cat_patterns = [
+                (r'scheduled caste|\bsc\b', 'SC'),
+                (r'scheduled tribe|\bst\b', 'ST'),
+                (r'\bobc\b|other backward', 'OBC'),
+                (r'extremely backward|\bebc\b|ati pichhada', 'EBC'),
+                (r'\bbackward class\b|\bbc\b', 'BC'),
+                (r'general category|\bgeneral\b(?!.*farming)', 'General'),
+            ]
+            for pattern, val in cat_patterns:
+                if re.search(pattern, c) and val not in accepted:
                     accepted.append(val)
             if accepted:
                 return ('q_20', {'type': 'category_match', 'accepted': accepted, 'desc': text})
@@ -755,8 +924,30 @@ class BiharQuestionnaire:
     
     def submit_answer(self, question_id: str, answer: Any) -> bool:
         """Submit an answer and move to next question"""
+        # For date-type answers on age questions, auto-calculate age from DOB
+        if question_id == 'q_15' and answer:
+            try:
+                dob = datetime.strptime(str(answer), '%Y-%m-%d')
+                today = datetime.today()
+                age = today.year - dob.year - ((today.month, today.day) < (dob.month, dob.day))
+                answer = str(age)
+            except (ValueError, TypeError):
+                pass  # Keep original answer if parsing fails
+        
+        # Save history entry for back navigation
+        self.question_history.append((self.current_question_index, question_id))
         self.user_responses[question_id] = answer
         self.current_question_index += 1
+        return True
+    
+    def go_back(self) -> bool:
+        """Go back to the previous question, removing the last answer"""
+        if not self.question_history:
+            return False
+        prev_index, prev_qid = self.question_history.pop()
+        # Remove the answer for the previous question
+        self.user_responses.pop(prev_qid, None)
+        self.current_question_index = prev_index
         return True
     
     # Questions that are skipped in the questionnaire (user won't have answers)
@@ -949,6 +1140,7 @@ class BiharQuestionnaire:
         """Reset the questionnaire to start over"""
         self.user_responses = {}
         self.current_question_index = 0
+        self.question_history = []
     
     def export_responses(self) -> Dict[str, Any]:
         """Export user responses for saving/loading"""

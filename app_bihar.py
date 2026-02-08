@@ -71,7 +71,8 @@ def get_question():
                 'options': current_question.options,
                 'required': current_question.required
             },
-            'progress': progress
+            'progress': progress,
+            'can_go_back': len(q.question_history) > 0
         })
         
     except Exception as e:
@@ -164,6 +165,29 @@ def scheme_detail(scheme_name):
         
     except Exception as e:
         return render_template('error.html', error=str(e))
+
+
+@app.route('/api/go_back', methods=['POST'])
+def go_back():
+    """Go back to the previous question"""
+    try:
+        q = get_questionnaire()
+        success = q.go_back()
+        if success:
+            return jsonify({
+                'status': 'success',
+                'message': 'Moved to previous question'
+            })
+        else:
+            return jsonify({
+                'status': 'error',
+                'message': 'No previous question to go back to'
+            })
+    except Exception as e:
+        return jsonify({
+            'status': 'error',
+            'message': str(e)
+        }), 500
 
 
 @app.route('/api/reset_questionnaire', methods=['POST'])

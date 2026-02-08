@@ -144,6 +144,14 @@
             transition: border-color .2s;
         }
         .input-wrap input:focus { border-color: #667eea; outline: none; }
+        .input-wrap input[type="date"] {
+            color: #333;
+            cursor: pointer;
+        }
+        .input-wrap input[type="date"]::-webkit-calendar-picker-indicator {
+            cursor: pointer;
+            filter: invert(40%) sepia(80%) saturate(500%) hue-rotate(210deg);
+        }
 
         /* ---- Buttons ---- */
         .btn-row {
@@ -172,6 +180,12 @@
             color: #666;
         }
         .btn-outline:hover { border-color: #667eea; color: #667eea; }
+        .btn-back {
+            background: transparent;
+            border: 2px solid #dee2e6;
+            color: #666;
+        }
+        .btn-back:hover { border-color: #e65100; color: #e65100; }
 
         /* ---- Complete screen ---- */
         .complete-screen { text-align: center; }
@@ -230,6 +244,7 @@ const API = {
         headers: {'Content-Type':'application/json'},
         body: JSON.stringify({ question_id: qid, answer: answer })
     }).then(r => r.json()),
+    goBack: () => fetch('/api/go_back', { method: 'POST' }).then(r => r.json()),
     reset: () => fetch('/api/reset_questionnaire', { method: 'POST' }).then(r => r.json())
 };
 
@@ -269,6 +284,7 @@ async function loadQuestion() {
 
         const q = data.question;
         const p = data.progress;
+        const canGoBack = data.can_go_back;
         selectedAnswer = null;
 
         let html = '';
@@ -329,6 +345,13 @@ async function loadQuestion() {
                        onkeydown="if(event.key==='Enter')submitCurrent()">
             </div>`;
 
+        } else if (q.input_type === 'date') {
+            html += `<div class="input-wrap">
+                <input type="date" id="dateInput" max="${new Date().toISOString().split('T')[0]}"
+                       onchange="selectedAnswer=this.value"
+                       onkeydown="if(event.key==='Enter')submitCurrent()">
+            </div>`;
+
         } else {
             /* text */
             html += `<div class="input-wrap">
@@ -340,8 +363,9 @@ async function loadQuestion() {
         /* ---- Action buttons ---- */
         html += `
         <div class="btn-row">
-            <button class="btn btn-outline" onclick="resetQuestionnaire()">🔄 Start Over</button>
-            <button class="btn btn-primary" id="nextBtn" onclick="submitCurrent()">Next →</button>
+            ${canGoBack ? '<button class="btn btn-back" onclick="goBack()">\u2190 Back</button>' : ''}
+            <button class="btn btn-outline" onclick="resetQuestionnaire()">\ud83d\udd04 Start Over</button>
+            <button class="btn btn-primary" id="nextBtn" onclick="submitCurrent()">Next \u2192</button>
         </div>`;
 
         card.innerHTML = html;
@@ -372,6 +396,9 @@ async function submitCurrent() {
         if (itype === 'number') {
             const inp = document.getElementById('numInput');
             answer = inp ? inp.value.trim() : '';
+        } else if (itype === 'date') {
+            const inp = document.getElementById('dateInput');
+            answer = inp ? inp.value : '';
         } else if (itype === 'select') {
             const sel = document.getElementById('selectInput');
             answer = sel ? sel.value : '';
@@ -412,6 +439,22 @@ async function submitCurrent() {
     } catch (err) {
         showError('Network error. Please try again.');
         if (nextBtn) { nextBtn.disabled = false; nextBtn.textContent = 'Next →'; }
+    }
+}
+
+/* ---------- Go back to previous question ---------- */
+async function goBack() {
+    const card = document.getElementById('questionCard');
+    card.innerHTML = '<div class="spinner"></div>';
+    try {
+        const res = await API.goBack();
+        if (res.status === 'success') {
+            loadQuestion();
+        } else {
+            loadQuestion(); // reload current question if can't go back
+        }
+    } catch (err) {
+        loadQuestion();
     }
 }
 
